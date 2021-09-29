@@ -2,21 +2,37 @@ package dev.jacaro.school.cs4308;
 
 import dev.jacaro.school.cs4308.errors.FileReadError;
 import dev.jacaro.school.cs4308.scanner.SourceFile;
+import dev.jacaro.school.cs4308.scanner.SourceScanner;
+import dev.jacaro.school.cs4308.structure.Lexeme;
 import dev.jacaro.school.cs4308.structure.Token;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
-    private static String[] loadFile(File file) throws FileReadError {
+    private static String loadFile(File file) throws FileReadError {
 
         try {
-            return Files.readAllLines(file.toPath()).toArray(new String[0]);
+            return new Scanner(file).useDelimiter("\\Z").next();
         } catch (IOException e) {
             throw new FileReadError(file.getAbsolutePath(), e);
+        }
+    }
+
+    public static void printFile(Lexeme[] array) {
+        for (Lexeme value : array) {
+
+            switch (value.token()) {
+                case OP_NEWLINE -> System.out.println();
+                case INTEGER -> System.out.printf("INTEGER=%s ", value.value());
+                case REAL -> System.out.printf("REAL=%s ", value.value());
+                case STRING -> System.out.printf("STR=\"%s\" ", value.value());
+                case ID -> System.out.printf("ID=%s ", value.value());
+                default -> System.out.printf("%s ", value.token().name());
+            }
         }
     }
 
@@ -39,8 +55,8 @@ public class Main {
             }
         }
 
-        System.out.println(sourceFiles);
+        var lexemes = SourceScanner.scan(sourceFiles.get(0).file(), Token.getAllMatchers());
 
-        System.out.println(Token.IDENTIFIER.name());
+        printFile(lexemes);
     }
 }

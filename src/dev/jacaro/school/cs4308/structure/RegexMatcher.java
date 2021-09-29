@@ -15,10 +15,17 @@ public class RegexMatcher implements Matcher {
     }
 
     @Override
-    public Lexeme match(String possibleMatch) {
-        var matcher = pattern.matcher(possibleMatch);
-        if (matcher.matches())
-            return new Lexeme(token, possibleMatch);
+    public Lexeme match(String file, int startOffset) {
+        var matcher = pattern.matcher(file).region(startOffset, file.length());
+
+        if (matcher.find()) {
+            var value = matcher.group(1);
+            return new Lexeme(
+                    token,
+                    token.ordinal(),
+                    value, startOffset,
+                    matcher.end() - 1);
+        }
         else
             return null;
     }
