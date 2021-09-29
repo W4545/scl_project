@@ -1,7 +1,4 @@
-
 package dev.jacaro.school.cs4308.structure;
-
-import java.util.Arrays;
 
 public enum Token {
     REM,
@@ -34,43 +31,50 @@ public enum Token {
     OR,
     AND,
     NOT,
-    OP_COLON("(:)"),
-    OP_POUND("(#)"),
-    OP_OPEN_PARENTHESIS("([(])"),
-    OP_CLOSE_PARENTHESIS("([)])"),
-    OP_EQUALS("(=)"),
-    OP_COMMA("(,)"),
-    OP_NOT_EQUAL("(<>|><)"),
-    OP_GREATER_THAN("(>)"),
-    OP_GREATER_OR_EQUAL_TO("(>=)"),
-    OP_LESS_THAN("(<)"),
-    OP_LESS_THAN_OR_EQUAL_TO("(<=)"),
-    OP_PLUS("(\\+)"),
-    OP_MINUS("(-)"),
-    OP_MULTIPLY("([*])"),
-    OP_DIVIDE("(/)"),
-    OP_POWER("(\\^)"),
-    OP_SEMICOLON("(;)"),
-    OP_NEWLINE("(\n)"),
+    OP_COLON("(:)", Type.OPERATOR),
+    OP_POUND("(#)", Type.OPERATOR),
+    OP_OPEN_PARENTHESIS("([(])", Type.OPERATOR),
+    OP_CLOSE_PARENTHESIS("([)])", Type.OPERATOR),
+    OP_EQUALS("(=)", Type.OPERATOR),
+    OP_COMMA("(,)", Type.OPERATOR),
+    OP_NOT_EQUAL("(<>|><)", Type.OPERATOR),
+    OP_GREATER_THAN("(>)", Type.OPERATOR),
+    OP_GREATER_OR_EQUAL_TO("(>=)", Type.OPERATOR),
+    OP_LESS_THAN("(<)", Type.OPERATOR),
+    OP_LESS_THAN_OR_EQUAL_TO("(<=)", Type.OPERATOR),
+    OP_PLUS("(\\+)", Type.OPERATOR),
+    OP_MINUS("(-)", Type.OPERATOR),
+    OP_MULTIPLY("([*])", Type.OPERATOR),
+    OP_DIVIDE("(/)", Type.OPERATOR),
+    OP_POWER("(\\^)", Type.OPERATOR),
+    OP_SEMICOLON("(;)", Type.OPERATOR),
+    OP_NEWLINE("(\n)", Type.NEW_LINE),
 
-    STRING("\"([^\"]*)\""),
-    REAL("([\\d]+\\.[\\d]+)"),
-    INTEGER("([\\d]+)"),
-    ID("([\\w]+[$%]?)");
+    STRING("\"([^\"]*)\"", Type.STRING),
+    REAL("([\\d]+\\.[\\d]+)", Type.REAL),
+    INTEGER("([\\d]+)", Type.INTEGER),
+    ID("([\\w]+[$%]?)", Type.ID);
 
     private final Matcher matcher;
+    private final Type type;
 
-    Token(String match) {
+    Token(String match, Type type) {
         matcher = new RegexMatcher(this, String.format("^\\s*%s", match));
+        this.type = type;
     }
 
     Token() {
         String regex = String.format("^\\s*(%s)", this.name());
         matcher = new RegexMatcher(this, regex);
+        type = Type.KEYWORD;
     }
 
     public Matcher getMatcher() {
         return matcher;
+    }
+
+    public Type getType() {
+        return type;
     }
 
     public static Matcher[] getAllMatchers() {
