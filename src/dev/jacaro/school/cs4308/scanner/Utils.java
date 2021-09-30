@@ -1,14 +1,9 @@
 package dev.jacaro.school.cs4308.scanner;
 
 import dev.jacaro.school.cs4308.structure.Lexeme;
-import dev.jacaro.school.cs4308.structure.Token;
 import dev.jacaro.school.cs4308.structure.Type;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Set;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
 
 public class Utils {
 
