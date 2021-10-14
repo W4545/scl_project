@@ -67,6 +67,11 @@ public class Main {
             }
         }
 
+        if (sourceFiles.size() == 0) {
+            System.err.println("Error, please provide a source file.");
+            return;
+        }
+
         var lexemes = SourceScanner.scan(sourceFiles.get(0).file(), Token.getAllMatchers());
 
         printFile(lexemes);
