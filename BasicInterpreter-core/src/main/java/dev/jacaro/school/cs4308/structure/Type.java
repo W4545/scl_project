@@ -7,5 +7,5 @@ public enum Type {
     ID,
     OPERATOR,
     NEW_LINE,
-    KEYWORD;
+    KEYWORD
 }
