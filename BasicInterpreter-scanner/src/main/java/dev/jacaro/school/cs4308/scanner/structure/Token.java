@@ -1,4 +1,6 @@
-package dev.jacaro.school.cs4308.structure;
+package dev.jacaro.school.cs4308.scanner.structure;
+
+import dev.jacaro.school.cs4308.structure.Type;
 
 public enum Token {
     REM,

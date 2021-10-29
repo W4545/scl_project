@@ -4,8 +4,8 @@ import dev.jacaro.school.cs4308.errors.FileReadError;
 import dev.jacaro.school.cs4308.scanner.SourceFile;
 import dev.jacaro.school.cs4308.scanner.SourceScanner;
 import dev.jacaro.school.cs4308.scanner.Utils;
-import dev.jacaro.school.cs4308.structure.Lexeme;
-import dev.jacaro.school.cs4308.structure.Token;
+import dev.jacaro.school.cs4308.scanner.structure.Lexeme;
+import dev.jacaro.school.cs4308.scanner.structure.Token;
 import dev.jacaro.school.cs4308.structure.Type;
 
 import java.io.File;

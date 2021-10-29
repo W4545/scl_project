@@ -1,4 +1,4 @@
-package dev.jacaro.school.cs4308.structure;
+package dev.jacaro.school.cs4308.scanner.structure;
 
 import java.util.regex.Pattern;
 
