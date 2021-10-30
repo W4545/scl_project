@@ -15,4 +15,7 @@ class Constant(lexeme: Lexeme) {
         else -> throw RuntimeException("hmm, what happened")
     }
 
+    override fun toString(): String {
+        return "Constant(value='$value', type=$type)"
+    }
 }

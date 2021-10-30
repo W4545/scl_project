@@ -1,6 +1,8 @@
 package dev.jacaro.school.cs4308;
 
 import dev.jacaro.school.cs4308.errors.FileReadError;
+import dev.jacaro.school.cs4308.parser.Parser;
+import dev.jacaro.school.cs4308.parser.structure.Line;
 import dev.jacaro.school.cs4308.scanner.SourceFile;
 import dev.jacaro.school.cs4308.scanner.SourceScanner;
 import dev.jacaro.school.cs4308.scanner.Utils;
@@ -24,39 +26,28 @@ public class Main {
         }
     }
 
-    private static void printArr(String name, Lexeme[] array) {
-        System.out.printf("%s: [%n", name);
-        for (int i = 0; i < array.length; i++) {
-            if (i + 1 != array.length)
-                System.out.printf("\t%s%n", array[i]);
-            else
-                System.out.printf("\t%s%n]%n", array[i]);
-        }
-    }
-
-    public static void printFile(Lexeme[] array) {
-        for (Lexeme value : array) {
-
-            switch (value.token()) {
-                case OP_NEWLINE -> System.out.println();
-                case INTEGER -> System.out.printf("INTEGER=%s ", value.value());
-                case REAL -> System.out.printf("REAL=%s ", value.value());
-                case STRING -> System.out.printf("STR=\"%s\" ", value.value());
-                case ID -> System.out.printf("ID=%s ", value.value());
-                default -> System.out.printf("%s ", value.token().name());
-            }
-        }
-        System.out.println();
-    }
-
     public static void main(String[] args) {
 
-        var sourceFiles = new ArrayList<SourceFile>();
+        boolean debugScanner = false, debugParser = false;
+
+        var names = new ArrayList<String>();
+        var data = new ArrayList<String>();
+
+
         for (var arg : args) {
+            if (arg.equals("--debug-scanner")) {
+                debugScanner = true;
+                continue;
+            } else if (arg.equals("--debug-parser")) {
+                debugParser = true;
+                continue;
+            }
+
             var file = new File(arg);
             if (file.exists()) {
                 try {
-                    sourceFiles.add(new SourceFile(file.getName(), loadFile(file)));
+                    names.add(file.getName());
+                    data.add(loadFile(file));
                 } catch (FileReadError fileReadError) {
                     System.err.println(fileReadError.getMessage());
                     return;
@@ -67,23 +58,37 @@ public class Main {
             }
         }
 
-        if (sourceFiles.size() == 0) {
+        if (names.size() == 0) {
             System.err.println("Error, please provide a source file.");
             return;
         }
 
-        var lexemes = SourceScanner.scan(sourceFiles.get(0).file(), Token.getAllMatchers());
+        // Run Scanner
+        var sourceFiles = new ArrayList<SourceFile>();
 
-        printFile(lexemes);
+        for (int i = 0; i < names.size(); i++) {
+            var lexemes = SourceScanner.scan(data.get(i), Token.getAllMatchers());
+            sourceFiles.add(new SourceFile(names.get(i), data.get(i), lexemes));
+        }
 
-        var keywords = Utils.removeDuplicateTokens(Utils.filterOnType(lexemes, Type.KEYWORD));
-        var IDs = Utils.removeDuplicateIDs(Utils.filterOnType(lexemes, Type.ID));
-        var operators = Utils.removeDuplicateTokens(Utils.filterOnType(lexemes, Type.OPERATOR));
-        var values = Utils.filterOnType(lexemes, Type.REAL, Type.INTEGER, Type.STRING);
+        // Run Parser
 
-        printArr("Keywords", keywords);
-        printArr("IDs", IDs);
-        printArr("Operators", operators);
-        printArr("Constants", values);
+        var parserOutputs = new ArrayList<Line[]>();
+
+        for (var sourceFile : sourceFiles) {
+            parserOutputs.add(Parser.INSTANCE.parse(sourceFile.lexemes()));
+        }
+
+        if (debugScanner) {
+            for (var sourceFile : sourceFiles) {
+                DebugOutputs.debugScanner(sourceFile);
+            }
+        }
+
+        if (debugParser) {
+            for (var parserOutput : parserOutputs) {
+                DebugOutputs.debugParser(parserOutput);
+            }
+        }
     }
 }

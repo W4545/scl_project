@@ -1,16 +1,30 @@
 package dev.jacaro.school.cs4308.parser.generator
 
+import dev.jacaro.school.cs4308.errors.ParsingError
 import dev.jacaro.school.cs4308.parser.Head
+import dev.jacaro.school.cs4308.parser.generator.lists.PrintListGenerator
+import dev.jacaro.school.cs4308.parser.generator.lists.StatementsGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.parser.structure.Line
 import dev.jacaro.school.cs4308.scanner.structure.Token
 
 object LineGenerator : Generator<Line> {
     override fun generate(head: Head): Line? {
+        if (head.currentHead >= head.lexemes.size)
+            return null
         val int = IntConstantGenerator.generate(head) ?: return null
-        head.inc()
-        head.isToken(Token.OP_POUND)
+
+        val statements = genOrThrow(head, StatementsGenerator)
+
+        if (!head.isToken(Token.OP_NEWLINE)) {
+            if (head.currentHead < head.lexemes.size)
+                throw ParsingError("Expected New Line")
+        } else
+            head.inc()
+
+        return Line(int, statements)
     }
 
-
+    override val result: String
+        get() = "Line"
 }

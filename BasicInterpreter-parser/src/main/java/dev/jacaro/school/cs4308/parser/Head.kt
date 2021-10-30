@@ -8,6 +8,9 @@ class Head(val lexemes: Array<Lexeme>, current: Int = 0) {
     var currentHead = current
     private set
 
+    val current: Lexeme
+    get() = lexemes[currentHead]
+
 
     operator fun inc() : Head {
         currentHead += 1
@@ -26,5 +29,5 @@ class Head(val lexemes: Array<Lexeme>, current: Int = 0) {
         return lexemes[currentHead]
     }
 
-    fun isToken(token: Token) : Boolean = lexemes[currentHead].token == token
+    fun isToken(token: Token) : Boolean = currentHead < lexemes.size && lexemes[currentHead].token == token
 }

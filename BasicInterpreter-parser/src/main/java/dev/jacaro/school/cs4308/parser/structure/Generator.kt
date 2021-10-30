@@ -2,7 +2,9 @@ package dev.jacaro.school.cs4308.parser.structure
 
 import dev.jacaro.school.cs4308.parser.Head
 
-interface Generator<T> {
+interface Generator<out T> {
 
-    abstract fun generate(head: Head): T?
+    fun generate(head: Head): T?
+
+    val result: String
 }

@@ -77,8 +77,8 @@ Real           = {digit}+.{digit}+
                 | DATA <Constant List> 
                 | DIM ID '(' <Integer List> ')'
                 | END          
-                | FOR ID '=' <Expression> TO <Expression>     
-                | FOR ID '=' <Expression> TO <Expression> STEP Integer      
+                | FOR LET ID '=' <Expression> TO <Expression>
+                | FOR LET ID '=' <Expression> TO <Expression> STEP Integer
                 | GOTO <Expression> 
                 | GOSUB <Expression> 
                 | IF <Expression> THEN <Statement>         
@@ -153,9 +153,7 @@ Real           = {digit}+.{digit}+
 <Power Exp>   ::= <Power Exp> '^' <Value> 
                 | <Value> 
 
-<Value>       ::= '(' <Expression> ')'
-                | ID 
-                | ID '(' <Expression List> ')'
+<Value>       ::= ID
                 | <Constant> 
 
 <Constant> ::= Integer 

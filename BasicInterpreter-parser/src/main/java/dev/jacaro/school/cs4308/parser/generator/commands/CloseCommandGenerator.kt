@@ -18,4 +18,7 @@ object CloseCommandGenerator: Generator<CloseCommand> {
             CloseCommand(int)
         } else null
     }
+
+    override val result: String
+        get() = "CLOSE"
 }
