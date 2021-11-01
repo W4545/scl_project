@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     `java-library`
     id("org.jetbrains.kotlin.jvm") version "1.5.31"
@@ -12,10 +14,14 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
 }
-val compileKotlin: org.jetbrains.kotlin.gradle.tasks.KotlinCompile by tasks
+
+val compileKotlin: KotlinCompile by tasks
 val compileJava: JavaCompile by tasks
 
-compileJava.destinationDir = compileKotlin.destinationDir
+compileJava.destinationDirectory.set(compileKotlin.destinationDirectory)
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "16"
+}
 
 ext.properties["moduleName"] = "dev.jacaro.basicinterpreter.parser"
