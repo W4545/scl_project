@@ -77,8 +77,8 @@ Real           = {digit}+.{digit}+
                 | DATA <Constant List> 
                 | DIM ID '(' <Integer List> ')'
                 | END          
-                | FOR LET ID '=' <Expression> TO <Expression>
-                | FOR LET ID '=' <Expression> TO <Expression> STEP Integer
+                | FOR ID '=' <Expression> TO <Expression>
+                | FOR ID '=' <Expression> TO <Expression> STEP Integer
                 | GOTO <Expression> 
                 | GOSUB <Expression> 
                 | IF <Expression> THEN <Statement>         

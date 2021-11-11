@@ -1,8 +1,8 @@
 package dev.jacaro.school.cs4308.parser.generator.structures
 
+import dev.jacaro.school.cs4308.commands.LetCommand
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.generator.*
-import dev.jacaro.school.cs4308.parser.generator.commands.LetCommandGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.ForLoop
 import dev.jacaro.school.cs4308.structure.Token
@@ -10,7 +10,11 @@ import dev.jacaro.school.cs4308.structure.Token
 object ForLoopGenerator : Generator<ForLoop> {
     override fun generate(head: Head): ForLoop? = if (head.isToken(Token.FOR)) {
         head.inc()
-        val letCommand = genOrThrow(head, LetCommandGenerator)
+        val id = genOrThrow(head, IDGenerator)
+        expectToken(head, Token.OP_EQUALS)
+        head.inc()
+        val expression = genOrThrow(head, ExpressionGenerator)
+        val letCommand = LetCommand(id, expression)
         expectToken(head, Token.TO)
         head.inc()
         val postExpression = genOrThrow(head, ExpressionGenerator)

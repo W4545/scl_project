@@ -4,7 +4,7 @@
 25 PRINT "How many start do you want: "
 30 INPUT N
 40 LET S$ = ""
-50 FOR LET I = 1 TO N
+50 FOR I = 1 TO N
 60 LET S$ = S$ + "*"
 70 NEXT I
 80 PRINT S$
