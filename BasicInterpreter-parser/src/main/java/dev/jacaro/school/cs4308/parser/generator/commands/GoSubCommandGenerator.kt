@@ -1,11 +1,11 @@
 package dev.jacaro.school.cs4308.parser.generator.commands
 
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.commands.GoSubCommand
+import dev.jacaro.school.cs4308.commands.GoSubCommand
 import dev.jacaro.school.cs4308.parser.generator.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.genOrThrow
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.Token
 
 object GoSubCommandGenerator : Generator<GoSubCommand> {
     override fun generate(head: Head): GoSubCommand? = if (head.isToken(Token.GOSUB)) {

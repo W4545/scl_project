@@ -5,8 +5,8 @@ import dev.jacaro.school.cs4308.parser.generator.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.expectToken
 import dev.jacaro.school.cs4308.parser.generator.genOrThrow
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.parser.structures.IfThen
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.IfThen
+import dev.jacaro.school.cs4308.structure.Token
 
 object IfThenGenerator : Generator<IfThen> {
     override fun generate(head: Head): IfThen? = if (head.isToken(Token.IF)) {

@@ -3,8 +3,8 @@ package dev.jacaro.school.cs4308.parser.generator
 import dev.jacaro.school.cs4308.errors.ParsingError
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.scanner.structure.Lexeme
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.Lexeme
+import dev.jacaro.school.cs4308.structure.Token
 
 open class TokenGenerator<T>(private val token: Token, private val refBuild: Lexeme.() -> T): Generator<T> {
     override fun generate(head: Head): T? {

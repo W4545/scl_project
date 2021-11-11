@@ -1,9 +1,9 @@
 package dev.jacaro.school.cs4308;
 
-import dev.jacaro.school.cs4308.parser.structure.Line;
+import dev.jacaro.school.cs4308.structure.Line;
 import dev.jacaro.school.cs4308.scanner.SourceFile;
 import dev.jacaro.school.cs4308.scanner.Utils;
-import dev.jacaro.school.cs4308.scanner.structure.Lexeme;
+import dev.jacaro.school.cs4308.structure.Lexeme;
 import dev.jacaro.school.cs4308.structure.Type;
 
 public class DebugOutputs {

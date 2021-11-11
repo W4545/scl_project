@@ -3,7 +3,7 @@ package dev.jacaro.school.cs4308.parser.generator.structures
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.generator.commands.allGenerators
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.parser.structures.Statement
+import dev.jacaro.school.cs4308.structure.Statement
 
 object StatementGenerator : Generator<Statement> {
     override fun generate(head: Head): Statement? {

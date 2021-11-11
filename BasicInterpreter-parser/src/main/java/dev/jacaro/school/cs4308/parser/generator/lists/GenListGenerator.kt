@@ -1,16 +1,16 @@
 package dev.jacaro.school.cs4308.parser.generator.lists
 
+import dev.jacaro.school.cs4308.constants.ConstantList
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.constants.PrintList
-import dev.jacaro.school.cs4308.parser.constants.ValueList
-import dev.jacaro.school.cs4308.parser.expressions.Expression
-import dev.jacaro.school.cs4308.parser.expressions.ExpressionList
+import dev.jacaro.school.cs4308.constants.PrintList
+import dev.jacaro.school.cs4308.constants.ValueList
+import dev.jacaro.school.cs4308.expressions.ExpressionList
 import dev.jacaro.school.cs4308.parser.generator.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGenerator
-import dev.jacaro.school.cs4308.parser.generator.expectToken
+import dev.jacaro.school.cs4308.parser.generator.ValueGeneratorNoIDs
 import dev.jacaro.school.cs4308.parser.generator.structures.StatementGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.Token
 
 class GenListGenerator<T, E> internal constructor(
     private val generator: Generator<T>,
@@ -56,4 +56,8 @@ val PrintListGenerator = GenListGenerator(ExpressionGenerator, Token.OP_SEMICOLO
 
 val StatementsGenerator = GenListGenerator(StatementGenerator, Token.OP_COLON) {
     it.toTypedArray()
+}
+
+val ConstantListGenerator = GenListGenerator(ValueGeneratorNoIDs) {
+    ConstantList(it.toTypedArray())
 }

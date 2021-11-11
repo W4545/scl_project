@@ -1,9 +1,9 @@
 package dev.jacaro.school.cs4308.parser.generator
 
-import dev.jacaro.school.cs4308.parser.expressions.Expression
-import dev.jacaro.school.cs4308.parser.expressions.Operators
+import dev.jacaro.school.cs4308.expressions.Expression
+import dev.jacaro.school.cs4308.expressions.Operators
 import dev.jacaro.school.cs4308.parser.generator.lists.ListGenerator
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.Token
 
 
 private val expectedTokens = Operators.values().map { it.token }

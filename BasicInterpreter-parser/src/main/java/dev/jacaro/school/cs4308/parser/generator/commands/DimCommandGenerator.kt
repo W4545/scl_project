@@ -1,13 +1,13 @@
 package dev.jacaro.school.cs4308.parser.generator.commands
 
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.commands.DimCommand
+import dev.jacaro.school.cs4308.commands.DimCommand
 import dev.jacaro.school.cs4308.parser.generator.IDGenerator
 import dev.jacaro.school.cs4308.parser.generator.expectToken
 import dev.jacaro.school.cs4308.parser.generator.genOrThrow
 import dev.jacaro.school.cs4308.parser.generator.lists.IntegerListGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.Token
 
 object DimCommandGenerator : Generator<DimCommand> {
     override fun generate(head: Head): DimCommand? {

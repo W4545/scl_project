@@ -2,13 +2,10 @@ package dev.jacaro.school.cs4308;
 
 import dev.jacaro.school.cs4308.errors.FileReadError;
 import dev.jacaro.school.cs4308.parser.Parser;
-import dev.jacaro.school.cs4308.parser.structure.Line;
+import dev.jacaro.school.cs4308.structure.Line;
 import dev.jacaro.school.cs4308.scanner.SourceFile;
 import dev.jacaro.school.cs4308.scanner.SourceScanner;
-import dev.jacaro.school.cs4308.scanner.Utils;
-import dev.jacaro.school.cs4308.scanner.structure.Lexeme;
-import dev.jacaro.school.cs4308.scanner.structure.Token;
-import dev.jacaro.school.cs4308.structure.Type;
+import dev.jacaro.school.cs4308.structure.Token;
 
 import java.io.File;
 import java.io.IOException;

@@ -2,11 +2,10 @@ package dev.jacaro.school.cs4308.parser.generator
 
 import dev.jacaro.school.cs4308.errors.ParsingError
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.generator.lists.PrintListGenerator
 import dev.jacaro.school.cs4308.parser.generator.lists.StatementsGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.parser.structure.Line
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.Line
+import dev.jacaro.school.cs4308.structure.Token
 
 object LineGenerator : Generator<Line> {
     override fun generate(head: Head): Line? {

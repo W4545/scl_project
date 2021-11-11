@@ -2,11 +2,11 @@ package dev.jacaro.school.cs4308.parser.generator.commands
 
 import dev.jacaro.school.cs4308.errors.ParsingError
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.commands.OpenCommand
-import dev.jacaro.school.cs4308.parser.constants.Access
+import dev.jacaro.school.cs4308.commands.OpenCommand
+import dev.jacaro.school.cs4308.constants.Access
 import dev.jacaro.school.cs4308.parser.generator.*
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.Token
 
 object OpenCommandGenerator : Generator<OpenCommand> {
     override fun generate(head: Head): OpenCommand? = isHeadOrNull(head, Token.OPEN) {

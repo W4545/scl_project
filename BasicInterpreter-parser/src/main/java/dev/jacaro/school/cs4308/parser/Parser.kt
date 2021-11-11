@@ -2,8 +2,8 @@ package dev.jacaro.school.cs4308.parser
 
 import dev.jacaro.school.cs4308.errors.ParsingError
 import dev.jacaro.school.cs4308.parser.generator.LineGenerator
-import dev.jacaro.school.cs4308.parser.structure.Line
-import dev.jacaro.school.cs4308.scanner.structure.Lexeme
+import dev.jacaro.school.cs4308.structure.Line
+import dev.jacaro.school.cs4308.structure.Lexeme
 
 object Parser {
 

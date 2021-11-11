@@ -1,10 +1,10 @@
 package dev.jacaro.school.cs4308.parser.generator.commands
 
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.commands.LetCommand
+import dev.jacaro.school.cs4308.commands.LetCommand
 import dev.jacaro.school.cs4308.parser.generator.*
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.Token
 
 object LetCommandGenerator : Generator<LetCommand> {
     override fun generate(head: Head): LetCommand? = isHeadOrNull(head, Token.LET) {

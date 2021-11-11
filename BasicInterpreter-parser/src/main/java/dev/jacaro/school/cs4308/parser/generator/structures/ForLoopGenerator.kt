@@ -4,8 +4,8 @@ import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.generator.*
 import dev.jacaro.school.cs4308.parser.generator.commands.LetCommandGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.parser.structures.ForLoop
-import dev.jacaro.school.cs4308.scanner.structure.Token
+import dev.jacaro.school.cs4308.structure.ForLoop
+import dev.jacaro.school.cs4308.structure.Token
 
 object ForLoopGenerator : Generator<ForLoop> {
     override fun generate(head: Head): ForLoop? = if (head.isToken(Token.FOR)) {
