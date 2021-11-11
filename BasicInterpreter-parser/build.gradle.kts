@@ -7,7 +7,6 @@ plugins {
 
 dependencies {
     implementation(project(":BasicInterpreter-core"))
-    implementation(project(":BasicInterpreter-scanner"))
 }
 
 java {
