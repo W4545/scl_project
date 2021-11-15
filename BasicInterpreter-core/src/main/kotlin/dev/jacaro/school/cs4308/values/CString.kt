@@ -1,27 +1,27 @@
 package dev.jacaro.school.cs4308.values
 
-class Integer(private val integer: Int) : Value<Int>() {
+class CString(private val string: String) : RawType<String> {
     override val value: Double
-        get() = integer.toDouble()
-    override val raw: Int
-        get() = integer
+        get() = string.hashCode().toDouble()
+    override val raw: String
+        get() = string
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Integer
+        other as CString
 
-        if (integer != other.integer) return false
+        if (string != other.string) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        return integer
+        return string.hashCode()
     }
 
     override fun toString(): String {
-        return "Integer(value=$integer)"
+        return "CString(value='$string')"
     }
 }

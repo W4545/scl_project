@@ -8,7 +8,6 @@ import dev.jacaro.school.cs4308.parser.generator.genOrThrow
 import dev.jacaro.school.cs4308.parser.generator.lists.IDListGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
-import dev.jacaro.school.cs4308.values.Integer
 
 object InputCommandGenerator : Generator<InputCommand> {
     override fun generate(head: Head): InputCommand? = if (head.isToken(Token.INPUT)) {

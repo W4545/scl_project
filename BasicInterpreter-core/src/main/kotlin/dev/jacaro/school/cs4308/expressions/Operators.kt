@@ -4,6 +4,7 @@ import dev.jacaro.school.cs4308.structure.Token
 
 enum class Operators(val token: Token) {
     NOT_EQUAL(Token.OP_NOT_EQUAL),
+    EQUAL(Token.OP_EQUALS),
     GREATER_THAN(Token.OP_GREATER_THAN),
     GREATER_OR_EQUAL_TO(Token.OP_GREATER_OR_EQUAL_TO),
     LESS_THAN(Token.OP_LESS_THAN),

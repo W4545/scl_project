@@ -13,4 +13,11 @@ val compileJava: JavaCompile by tasks
 
 compileJava.destinationDirectory.set(compileKotlin.destinationDirectory)
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>() {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_16.majorVersion
+
+    }
+}
+
 ext.properties["moduleName"] = "dev.jacaro.basicinterpreter.core"

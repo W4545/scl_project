@@ -35,7 +35,7 @@ public class Main {
             if (arg.equals("--debug-scanner")) {
                 debugScanner = true;
                 continue;
-            } else if (arg.equals("--debug-parser")) {
+            } else if (arg.equals("--debug-dev.jacaro.school.cs4308.parser")) {
                 debugParser = true;
                 continue;
             }

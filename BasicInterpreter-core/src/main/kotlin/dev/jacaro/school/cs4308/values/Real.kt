@@ -1,10 +1,18 @@
 package dev.jacaro.school.cs4308.values
 
-class Real(private val double: Double) : Value<Double>() {
+class Real(private val double: Double) : RawType<Double> {
     override val value: Double
         get() = double
     override val raw: Double
         get() = double
+
+    operator fun plus(type: Value<*>) = Real(double + type.value)
+
+    operator fun minus(type: Value<*>) = Real(double - type.value)
+
+    operator fun times(type: Value<*>) = Real(double * type.value)
+
+    operator fun div(type: Value<*>) = Real(double / type.value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

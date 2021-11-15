@@ -4,6 +4,7 @@ import dev.jacaro.school.cs4308.expressions.Expression
 import dev.jacaro.school.cs4308.expressions.Operators
 import dev.jacaro.school.cs4308.parser.generator.lists.ListGenerator
 import dev.jacaro.school.cs4308.structure.Token
+import dev.jacaro.school.cs4308.values.Integer
 
 
 private val expectedTokens = Operators.values().map { it.token }
@@ -20,7 +21,7 @@ private val expectedTokens = Operators.values().map { it.token }
         Token.OP_CLOSE_PARENTHESIS)).toTypedArray()
 
 
-object ExpressionGenerator : ListGenerator<Expression>(expectedTokens, { Expression(it) }) {
+object ExpressionGenerator : ListGenerator<Expression>(expectedTokens, { Expression(Integer(0)) }) {
 
     override val result: String
         get() = "Expression"

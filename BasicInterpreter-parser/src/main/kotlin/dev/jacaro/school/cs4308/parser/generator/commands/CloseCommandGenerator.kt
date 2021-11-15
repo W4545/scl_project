@@ -7,7 +7,6 @@ import dev.jacaro.school.cs4308.parser.generator.IntConstantGenerator
 import dev.jacaro.school.cs4308.parser.generator.expectToken
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
-import dev.jacaro.school.cs4308.values.Integer
 
 object CloseCommandGenerator: Generator<CloseCommand> {
     override fun generate(head: Head): CloseCommand? {

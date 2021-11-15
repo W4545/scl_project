@@ -1,7 +1,8 @@
 package dev.jacaro.school.cs4308.parser.generator.lists
 
+import dev.jacaro.school.cs4308.constants.IDList
+import dev.jacaro.school.cs4308.constants.IntegerList
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.constants.*
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Lexeme
 import dev.jacaro.school.cs4308.structure.Token
