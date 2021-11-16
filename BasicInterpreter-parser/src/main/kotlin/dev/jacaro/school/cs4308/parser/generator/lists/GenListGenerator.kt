@@ -5,7 +5,7 @@ import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.constants.PrintList
 import dev.jacaro.school.cs4308.constants.ValueList
 import dev.jacaro.school.cs4308.expressions.ExpressionList
-import dev.jacaro.school.cs4308.parser.generator.ExpressionGenerator
+import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGeneratorNoIDs
 import dev.jacaro.school.cs4308.parser.generator.structures.StatementGenerator

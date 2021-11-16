@@ -2,6 +2,7 @@ package dev.jacaro.school.cs4308.expressions
 
 enum class Priority {
     ONE,
+    POWER,
     TWO,
     THREE,
     FOUR,

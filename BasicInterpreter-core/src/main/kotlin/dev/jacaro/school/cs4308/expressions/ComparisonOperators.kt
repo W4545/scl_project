@@ -27,8 +27,8 @@ class GreaterThanOrEqualToOperator(left: Value<*>, right: Value<*>)
 class LessThanOrEqualToOperator(left: Value<*>, right: Value<*>)
     : BasicComparisonOperator(left, right, { left.value <= right.value })
 
-class EqualTo(left: Value<*>, right: Value<*>)
+class EqualToOperator(left: Value<*>, right: Value<*>)
     : BasicComparisonOperator(left, right, { left.value == right.value })
 
-class NotEqualTo(left: Value<*>, right: Value<*>)
+class NotEqualToOperator(left: Value<*>, right: Value<*>)
     : BasicComparisonOperator(left, right, { left.value != right.value })

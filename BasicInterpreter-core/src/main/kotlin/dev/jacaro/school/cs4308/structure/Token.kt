@@ -35,22 +35,24 @@ enum class Token {
     NOT,
     OP_COLON("(:)", Type.OPERATOR),
     OP_POUND("(#)", Type.OPERATOR),
-    OP_OPEN_PARENTHESIS("([(])", Type.OPERATOR, Priority.ONE),
-    OP_CLOSE_PARENTHESIS("([)])", Type.OPERATOR, Priority.ONE),
-    OP_EQUALS("(=)", Type.OPERATOR, Priority.SEVEN),
+    OP_OPEN_PARENTHESIS("([(])", Type.OPERATOR),
+    OP_CLOSE_PARENTHESIS("([)])", Type.OPERATOR),
+    OP_EQUALS("(=)", Type.OPERATOR),
     OP_COMMA("(,)", Type.OPERATOR),
-    OP_NOT_EQUAL("(<>|><)", Type.OPERATOR, Priority.SEVEN),
-    OP_GREATER_THAN("(>)", Type.OPERATOR, Priority.SIX),
-    OP_GREATER_OR_EQUAL_TO("(>=)", Type.OPERATOR, Priority.SIX),
-    OP_LESS_THAN("(<)", Type.OPERATOR, Priority.SIX),
-    OP_LESS_THAN_OR_EQUAL_TO("(<=)", Type.OPERATOR, Priority.SIX),
-    OP_PLUS("(\\+)", Type.OPERATOR, Priority.FOUR),
-    OP_MINUS("(-)", Type.OPERATOR, Priority.FOUR),
-    OP_MULTIPLY("([*])", Type.OPERATOR, Priority.THREE),
-    OP_DIVIDE("(/)", Type.OPERATOR, Priority.THREE),
-    OP_POWER("(\\^)", Type.OPERATOR, Priority.TWO),
+    OP_NOT_EQUAL("(<>|><)", Type.OPERATOR),
+    OP_GREATER_THAN("(>)", Type.OPERATOR),
+    OP_GREATER_OR_EQUAL_TO("(>=)", Type.OPERATOR),
+    OP_LESS_THAN("(<)", Type.OPERATOR),
+    OP_LESS_THAN_OR_EQUAL_TO("(<=)", Type.OPERATOR),
+    OP_PLUS("(\\+)", Type.OPERATOR),
+    OP_MINUS("(-)", Type.OPERATOR),
+    OP_MULTIPLY("([*])", Type.OPERATOR),
+    OP_DIVIDE("(/)", Type.OPERATOR),
+    OP_POWER("(\\^)", Type.OPERATOR),
     OP_SEMICOLON("(;)", Type.OPERATOR),
     OP_NEWLINE("(\n)", Type.NEW_LINE),
+    OP_UNARY_PLUS,
+    OP_UNARY_MINUS,
     STRING("\"([^\"]*)\"", Type.STRING),
     REAL("([\\d]+\\.[\\d]+)", Type.REAL),
     INTEGER("([\\d]+)", Type.INTEGER),
@@ -58,16 +60,13 @@ enum class Token {
 
     val matcher: Matcher
     val type: Type
-    val priority: Priority?
 
-    constructor(match: String, type: Type, priority: Priority? = null) {
-        this.priority = priority
+    constructor(match: String, type: Type) {
         matcher = RegexMatcher(this, String.format("^\\s*%s", match))
         this.type = type
     }
 
     constructor() {
-        this.priority = null
         val regex = String.format("^\\s*(%s)", name)
         matcher = RegexMatcher(this, regex)
         type = Type.KEYWORD

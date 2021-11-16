@@ -1,7 +1,7 @@
 package dev.jacaro.school.cs4308.parser.generator.structures
 
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.generator.ExpressionGenerator
+import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.expectToken
 import dev.jacaro.school.cs4308.parser.generator.genOrThrow
 import dev.jacaro.school.cs4308.parser.structure.Generator
