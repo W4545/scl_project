@@ -1,9 +1,12 @@
 package dev.jacaro.school.cs4308.parser.generator.expressions
 
 import dev.jacaro.school.cs4308.errors.ExpressionGenerationError
+import dev.jacaro.school.cs4308.expressions.Addition
 import dev.jacaro.school.cs4308.expressions.Expression
+import dev.jacaro.school.cs4308.expressions.GreaterThanOperator
 import dev.jacaro.school.cs4308.expressions.Operators
 import dev.jacaro.school.cs4308.ids.IDManager
+import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.generator.lists.ListGenerator
 import dev.jacaro.school.cs4308.structure.Token
 import dev.jacaro.school.cs4308.values.CString
@@ -20,7 +23,7 @@ private val expectedTokens = Operators.values().map { it.token }
         Token.REAL)).toTypedArray()
 
 
-object ExpressionGenerator : ListGenerator<Expression>(expectedTokens, { lexemes ->
+object ExpressionGenerator : ListGenerator<Expression<*>>(expectedTokens, { lexemes ->
     val expressionWrapped: Array<ExpressionWrap<*>> = lexemes.map { lexeme ->
         when(lexeme.token) {
             in Operators.values().map { it.token } ->
@@ -29,14 +32,13 @@ object ExpressionGenerator : ListGenerator<Expression>(expectedTokens, { lexemes
                 ID(lexeme.value)
             })
             Token.STRING -> ExpressionWrap(CString(lexeme.value))
-            Token.INTEGER -> ExpressionWrap(Integer(lexeme.value.toInt()))
-            Token.REAL -> ExpressionWrap(Real(lexeme.value.toDouble()))
+            Token.REAL, Token.INTEGER -> ExpressionWrap(Real(lexeme.value.toDouble()))
             else -> throw ExpressionGenerationError("")
         }
     }.toTypedArray()
 
-    val postFix = ExpressionConverter.infixToPostfix(expressionWrapped)
-    Expression(Integer(0))
+    val postFix = ExpressionInfixConverter.infixToPostfix(expressionWrapped)
+    Expression(ExpressionTreeBuilder.buildTree(postFix))
 }) {
 
     override val result: String

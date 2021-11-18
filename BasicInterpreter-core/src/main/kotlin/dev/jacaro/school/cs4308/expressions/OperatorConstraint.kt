@@ -3,19 +3,21 @@ package dev.jacaro.school.cs4308.expressions
 import dev.jacaro.school.cs4308.errors.constraints.NumericConstraintError
 import dev.jacaro.school.cs4308.values.*
 
-interface OperatorConstraint<T> {
+interface OperatorConstraint<T, R> {
 
-    fun validate(operator: Operator<T>)
+    fun validate(operator: OperatorImpl<T, R>)
 }
 
 
-class BasicOperatorConstraint<T>(val name: String = "BasicConstraint", private val validator: (Operator<T>) -> Unit) : OperatorConstraint<T> {
-    override fun validate(operator: Operator<T>) = validator(operator)
+class BasicOperatorConstraint<T, R>(val name: String = "BasicConstraint", private val validator: OperatorImpl<T, R>.() -> Unit) : OperatorConstraint<T, R> {
+    override fun validate(operator: OperatorImpl<T, R>) {
+        operator.validator()
+    }
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as BasicOperatorConstraint<*>
+        other as BasicOperatorConstraint<*, *>
 
         if (validator != other.validator) return false
 
@@ -31,16 +33,15 @@ class BasicOperatorConstraint<T>(val name: String = "BasicConstraint", private v
     }
 }
 
-val NumberOperatorConstraint = BasicOperatorConstraint<Double>("NumberConstraint") {
+val NumberOperatorConstraint = BasicOperatorConstraint<Double, Double>("NumberConstraint") {
     fun validateField(value: Value<*>) {
-        if (value.raw is ID) {
-            val temp = value.raw as ID
-            temp.addConstraint(NumericConstraint)
-        } else if (value.raw !is Integer && value.raw !is Real) {
-            throw NumericConstraintError("Value $value in operator $it failed to be numeric")
+        if (value is ID) {
+            value.addConstraint(NumericConstraint)
+        } else if (value !is Integer && value !is Real) {
+            throw NumericConstraintError("Value $value in operator $this failed to be numeric")
         }
     }
 
-    validateField(it.left)
-    it.right?.let { value -> validateField(value) }
+    validateField(left)
+    right?.let { value -> validateField(value) }
 }

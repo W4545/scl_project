@@ -18,7 +18,7 @@ object ForLoopGenerator : Generator<ForLoop> {
         val letCommand = LetCommand(id, expression)
         expectToken(head, Token.TO)
         head.inc()
-        val postExpression = genOrThrow(head, ExpressionGenerator)
+        val postExpression = genExpressionOrThrow<Double>(head)
 
         val step = if (head.isToken(Token.STEP)) {
             head.inc()

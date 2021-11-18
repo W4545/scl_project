@@ -2,7 +2,9 @@ package dev.jacaro.school.cs4308.parser.generator.commands
 
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.commands.GoSubCommand
+import dev.jacaro.school.cs4308.expressions.Expression
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
+import dev.jacaro.school.cs4308.parser.generator.genExpressionOrThrow
 import dev.jacaro.school.cs4308.parser.generator.genOrThrow
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
@@ -10,7 +12,7 @@ import dev.jacaro.school.cs4308.structure.Token
 object GoSubCommandGenerator : Generator<GoSubCommand> {
     override fun generate(head: Head): GoSubCommand? = if (head.isToken(Token.GOSUB)) {
         head.inc()
-        val expression = genOrThrow(head, ExpressionGenerator)
+        val expression = genExpressionOrThrow<Int>(head)
 
         GoSubCommand(expression)
     } else null

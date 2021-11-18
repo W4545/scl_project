@@ -39,4 +39,5 @@ private class ValueGeneratorImpl(val allowIDs: Boolean) : Generator<Value<*>> {
 
 val ValueGenerator : Generator<Value<*>> = ValueGeneratorImpl(true)
 
-val ValueGeneratorNoIDs : Generator<Value<*>> = ValueGeneratorImpl(false)
+
+@Suppress("UNCHECKED_CAST") val ValueGeneratorNoIDs : Generator<RawType<*>> = ValueGeneratorImpl(false) as Generator<RawType<*>>

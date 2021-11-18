@@ -4,7 +4,7 @@ import dev.jacaro.school.cs4308.errors.VariableInitializationError
 import dev.jacaro.school.cs4308.errors.constraints.NumericConstraintError
 
 
-class ID(val id: String, backerProperty: Value<out RawType<*>>? = null) : Value<Any> {
+class ID(val id: String, backerProperty: RawType<*>? = null) : Value<Any> {
 
     private val constraints = emptySet<IDConstraint>().toMutableSet()
 
@@ -49,11 +49,11 @@ class ID(val id: String, backerProperty: Value<out RawType<*>>? = null) : Value<
 }
 
 interface IDConstraint {
-    fun validate(id: ID, value: Value<out RawType<*>>)
+    fun validate(id: ID, value: RawType<*>)
 }
 
-class BasicIDConstraint(val name: String = "BasicConstraint", private val validator: (ID, Value<out RawType<*>>) -> Unit) : IDConstraint {
-    override fun validate(id: ID, value: Value<out RawType<*>>) = validator(id, value)
+class BasicIDConstraint(val name: String = "BasicConstraint", private val validator: (ID, RawType<*>) -> Unit) : IDConstraint {
+    override fun validate(id: ID, value: RawType<*>) = validator(id, value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

@@ -1,6 +1,7 @@
 module dev.jacaro.basicinterpreter.core {
 
     requires kotlin.stdlib;
+    requires kotlin.reflect;
 
     exports dev.jacaro.school.cs4308.errors;
     exports dev.jacaro.school.cs4308.structure;
