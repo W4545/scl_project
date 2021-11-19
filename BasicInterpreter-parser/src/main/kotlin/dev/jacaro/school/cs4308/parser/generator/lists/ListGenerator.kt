@@ -21,6 +21,9 @@ open class ListGenerator<T>(private val tokens: Array<Token>, private val refBui
                 head.inc()
             }
 
+            if (head.previous.token == Token.OP_COMMA)
+                head.dec()
+
             return refBuild(unprocessedLexemes.toTypedArray())
         }
 
@@ -33,9 +36,5 @@ open class ListGenerator<T>(private val tokens: Array<Token>, private val refBui
 
 val IntegerListGenerator = ListGenerator(arrayOf(Token.INTEGER)) { lexemes ->
     IntegerList(lexemes.map { Integer(it.value.toInt()) }.toTypedArray())
-}
-
-val IDListGenerator = ListGenerator(arrayOf(Token.ID)) { lexemes ->
-    IDList(lexemes.map { ID(it.value) }.toTypedArray())
 }
 

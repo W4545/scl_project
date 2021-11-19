@@ -11,9 +11,17 @@ class Head(val lexemes: Array<Lexeme>, current: Int = 0) {
     val current: Lexeme
     get() = lexemes[currentHead]
 
+    val previous: Lexeme
+    get() = lexemes[currentHead - 1]
+
 
     operator fun inc() : Head {
         currentHead += 1
+        return this
+    }
+
+    operator fun dec() : Head {
+        currentHead -= 1
         return this
     }
 

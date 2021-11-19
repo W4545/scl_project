@@ -1,14 +1,24 @@
 package dev.jacaro.school.cs4308.commands
 
 import dev.jacaro.school.cs4308.structure.Action
+import dev.jacaro.school.cs4308.structure.State
 
 
-class ReturnCommand : Action
+class ReturnCommand : Action {
+    override fun action(state: State) {
+        val subRoutineControl = state.goSubControls.pop()
+        state.setNextLine(line = subRoutineControl.returningLine)
+    }
+}
 
-class RestoreCommand : Action
+class StopCommand : Action {
+    override fun action(state: State) {
+        state.stopExecution = true
+    }
+}
 
-class RunCommand : Action
-
-class StopCommand : Action
-
-class RemarkCommand : Action
+class RemarkCommand : Action {
+    override fun action(state: State) {
+        // Do Nothing. This is a comment
+    }
+}

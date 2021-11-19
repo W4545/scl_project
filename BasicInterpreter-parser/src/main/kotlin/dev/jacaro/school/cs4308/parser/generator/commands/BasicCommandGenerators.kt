@@ -8,15 +8,6 @@ val ReturnCommandGenerator = TokenGenerator(Token.RETURN) {
     ReturnCommand()
 }
 
-val RestoreCommandGenerator = TokenGenerator(Token.RESTORE) {
-    RestoreCommand()
-}
-
-val RunCommandGenerator = TokenGenerator(Token.RUN) {
-    RunCommand()
-
-}
-
 val StopCommandGenerator = TokenGenerator(Token.STOP) {
     StopCommand()
 

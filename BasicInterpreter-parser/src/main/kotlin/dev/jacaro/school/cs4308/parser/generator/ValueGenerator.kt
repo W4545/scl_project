@@ -17,8 +17,6 @@ private class ValueGeneratorImpl(val allowIDs: Boolean) : Generator<Value<*>> {
             return temp
         }
         return when(head.current().token) {
-            Token.INTEGER -> Integer(getAndInc().value.toInt())
-            Token.REAL -> Real(getAndInc().value.toDouble())
             Token.STRING -> CString(getAndInc().value)
             Token.ID -> {
                 if (allowIDs) {
@@ -28,7 +26,14 @@ private class ValueGeneratorImpl(val allowIDs: Boolean) : Generator<Value<*>> {
                     }
                 } else null
             }
-            else -> null
+            else -> {
+                val int = IntConstantGenerator.generate(head)
+                if (int == null) {
+                    val real = RealGenerator.generate(head)
+                    real
+                } else
+                    int
+            }
         }
     }
 

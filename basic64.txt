@@ -73,34 +73,22 @@ Real           = {digit}+.{digit}+
 <Statements>  ::= <Statement> ':' <Statements>
                 | <Statement>
 
-<Statement>   ::= CLOSE '#' Integer
-                | DATA <Constant List> 
+<Statement>   ::= DATA <Constant List>
                 | DIM ID '(' <Integer List> ')'
                 | END          
                 | FOR ID '=' <Expression> TO <Expression>
                 | FOR ID '=' <Expression> TO <Expression> STEP Integer
                 | GOTO <Expression> 
                 | GOSUB <Expression> 
-                | IF <Expression> THEN <Statement>         
-                | INPUT <ID List>       
-                | INPUT '#' Integer ',' <ID List>       
+                | IF <Expression> THEN GOTO Integer
                 | LET Id '=' <Expression> 
-                | NEXT <ID List>               
-                | OPEN <Value> FOR <Access> AS '#' Integer
-                | POKE <Value List>
+                | NEXT <ID List>
                 | PRINT <Print list>
-                | PRINT '#' Integer ',' <Print List>
                 | READ <ID List>           
                 | RETURN
-                | RESTORE
-                | RUN
                 | STOP
-                | SYS <Value>
-                | WAIT <Value List>
-                | Remark
+                | REM
 
-<Access>   ::= INPUT
-             | OUTPUT
                    
 <ID List>  ::= ID ',' <ID List> 
              | ID 

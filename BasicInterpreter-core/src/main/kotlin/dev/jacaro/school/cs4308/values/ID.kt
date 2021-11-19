@@ -13,6 +13,7 @@ class ID(val id: String, backerProperty: RawType<*>? = null) : Value<Any> {
         if (value == null)
             throw VariableInitializationError("A variable may not be assigned a null value")
         constraints.forEach { it.validate(this, value) }
+        field = value
     }
 
     fun addConstraint(idConstraint: IDConstraint) : Boolean = constraints.add(idConstraint)

@@ -12,15 +12,13 @@ import dev.jacaro.school.cs4308.structure.Token
 
 object PrintCommandGenerator : Generator<PrintCommand> {
     override fun generate(head: Head): PrintCommand? = isHeadOrNull(head, Token.PRINT) {
-        val integer = if (head.isToken(Token.OP_POUND)) {
+        val printList = PrintListGenerator.generate(head)
+        val newLine = if (printList != null && head.isToken(Token.OP_COMMA)) {
             head.inc()
-            val temp = genOrThrow(head, IntConstantGenerator)
-            expectToken(head, Token.OP_COMMA)
-            head.inc()
-            temp
-        } else null
-        val printList = genOrThrow(head, PrintListGenerator)
-        PrintCommand(integer, printList)
+            false
+        } else
+            true
+        PrintCommand(printList, newLine)
     }
 
     override val result: String

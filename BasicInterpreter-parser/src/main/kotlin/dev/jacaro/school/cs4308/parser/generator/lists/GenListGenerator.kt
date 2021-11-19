@@ -1,10 +1,12 @@
 package dev.jacaro.school.cs4308.parser.generator.lists
 
 import dev.jacaro.school.cs4308.constants.ConstantList
+import dev.jacaro.school.cs4308.constants.IDList
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.constants.PrintList
 import dev.jacaro.school.cs4308.constants.ValueList
 import dev.jacaro.school.cs4308.expressions.ExpressionList
+import dev.jacaro.school.cs4308.parser.generator.IDGenerator
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGeneratorNoIDs
@@ -35,6 +37,9 @@ class GenListGenerator<T, E> internal constructor(
             temp = generator.generate(head)
         }
 
+        if (head.previous.token == Token.OP_COMMA)
+            head.dec()
+
         return refBuild(expressionList.toList())
     }
 
@@ -60,4 +65,8 @@ val StatementsGenerator = GenListGenerator(StatementGenerator, Token.OP_COLON) {
 
 val ConstantListGenerator = GenListGenerator(ValueGeneratorNoIDs) {
     ConstantList(it.toTypedArray())
+}
+
+val IDListGenerator = GenListGenerator(IDGenerator) {
+    IDList(it.toTypedArray())
 }

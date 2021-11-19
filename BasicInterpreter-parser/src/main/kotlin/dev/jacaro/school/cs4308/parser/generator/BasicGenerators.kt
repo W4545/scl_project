@@ -10,8 +10,6 @@ import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Lexeme
 import dev.jacaro.school.cs4308.structure.Token
 import dev.jacaro.school.cs4308.values.Value
-import kotlin.reflect.KType
-import kotlin.reflect.jvm.jvmErasure
 import kotlin.reflect.typeOf
 
 open class TokenGenerator<T>(private val token: Token, private val refBuild: Lexeme.() -> T): Generator<T> {
@@ -41,7 +39,7 @@ fun<T> genOrThrow(head: Head, generator: Generator<T>) : T =
 @Suppress("UNCHECKED_CAST")
 inline fun<reified T> genExpressionOrThrow(head: Head) : Expression<T> {
     val expression = ExpressionGenerator.generate(head) ?: throw ParsingError(String.format("Parsing Error."))
-    println(typeOf<T>().classifier)
+
     if (typeOf<T>().classifier?.toString() == "class kotlin.Int") {
         if (!Expression.validate<Double>(expression))
             throw ExpressionGenerationError("Expected type ${T::class.simpleName} but received ${expression.expression::class.simpleName}")

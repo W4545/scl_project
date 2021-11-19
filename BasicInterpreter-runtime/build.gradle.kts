@@ -7,6 +7,7 @@ dependencies {
     implementation(project(":BasicInterpreter-core"))
     implementation(project(":BasicInterpreter-scanner"))
     implementation(project(":BasicInterpreter-parser"))
+    implementation(project(":BasicInterpreter-executor"))
 }
 
 java {

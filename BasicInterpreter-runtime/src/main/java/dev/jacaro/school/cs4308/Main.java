@@ -6,6 +6,7 @@ import dev.jacaro.school.cs4308.structure.Line;
 import dev.jacaro.school.cs4308.scanner.SourceFile;
 import dev.jacaro.school.cs4308.scanner.SourceScanner;
 import dev.jacaro.school.cs4308.structure.Token;
+import dev.jacaro.school.cs4308.executor.Executor;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,19 +26,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        boolean debugScanner = false, debugParser = false;
+        boolean debugScanner = false, debugParser = false, debugExecutor = false;
 
         var names = new ArrayList<String>();
         var data = new ArrayList<String>();
 
 
         for (var arg : args) {
-            if (arg.equals("--debug-scanner")) {
-                debugScanner = true;
-                continue;
-            } else if (arg.equals("--debug-dev.jacaro.school.cs4308.parser")) {
-                debugParser = true;
-                continue;
+            switch (arg) {
+                case "--debug-scanner" -> {
+                    debugScanner = true;
+                    continue;
+                }
+                case "--debug-parser" -> {
+                    debugParser = true;
+                    continue;
+                }
+                case "--debug-executor" -> {
+                    debugExecutor = true;
+                    continue;
+                }
             }
 
             var file = new File(arg);
@@ -68,6 +76,12 @@ public class Main {
             sourceFiles.add(new SourceFile(names.get(i), data.get(i), lexemes));
         }
 
+        if (debugScanner) {
+            for (var sourceFile : sourceFiles) {
+                DebugOutputs.debugScanner(sourceFile);
+            }
+        }
+
         // Run Parser
 
         var parserOutputs = new ArrayList<Line[]>();
@@ -76,16 +90,14 @@ public class Main {
             parserOutputs.add(Parser.INSTANCE.parse(sourceFile.lexemes()));
         }
 
-        if (debugScanner) {
-            for (var sourceFile : sourceFiles) {
-                DebugOutputs.debugScanner(sourceFile);
-            }
-        }
-
         if (debugParser) {
             for (var parserOutput : parserOutputs) {
                 DebugOutputs.debugParser(parserOutput);
             }
+        }
+
+        for (var lines : parserOutputs) {
+            Executor.INSTANCE.execute(lines);
         }
     }
 }

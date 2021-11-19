@@ -1,6 +1,9 @@
 package dev.jacaro.school.cs4308.parser.generator.structures
 
+import dev.jacaro.school.cs4308.commands.GoToCommand
+import dev.jacaro.school.cs4308.expressions.Expression
 import dev.jacaro.school.cs4308.parser.Head
+import dev.jacaro.school.cs4308.parser.generator.IntConstantGenerator
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.expectToken
 import dev.jacaro.school.cs4308.parser.generator.genExpressionOrThrow
@@ -15,9 +18,9 @@ object IfThenGenerator : Generator<IfThen> {
         val expression = genExpressionOrThrow<Boolean>(head)
         expectToken(head, Token.THEN)
         head.inc()
-        val statement = genOrThrow(head, StatementGenerator)
+        val lineNumber = genOrThrow(head, IntConstantGenerator)
 
-        IfThen(expression, statement)
+        IfThen(expression, GoToCommand(Expression(lineNumber)))
     } else null
 
     override val result: String

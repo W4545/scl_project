@@ -22,7 +22,7 @@ object ForLoopGenerator : Generator<ForLoop> {
 
         val step = if (head.isToken(Token.STEP)) {
             head.inc()
-            genOrThrow(head, IntConstantGenerator)
+            genOrThrow(head, RealGenerator)
         } else null
 
         ForLoop(letCommand, postExpression, step)
