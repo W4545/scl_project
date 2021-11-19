@@ -1,10 +1,10 @@
 plugins {
     `java-library`
-    id("org.jetbrains.kotlin.jvm") version "1.5.31"
+    id("org.jetbrains.kotlin.jvm") version "1.6.0"
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.31")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
 }
 
 java {
@@ -17,9 +17,9 @@ val compileJava: JavaCompile by tasks
 
 compileJava.destinationDirectory.set(compileKotlin.destinationDirectory)
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>() {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_16.majorVersion
+        jvmTarget = JavaVersion.VERSION_17.majorVersion
         freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
