@@ -39,8 +39,6 @@ abstract class NumericOperator internal constructor(left: Value<Double>, right: 
     override val raw: Double
         get() = operation().value
 
-    init {
-    }
 }
 
 /**

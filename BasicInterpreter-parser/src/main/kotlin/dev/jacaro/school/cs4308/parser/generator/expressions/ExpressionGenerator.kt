@@ -1,17 +1,13 @@
 package dev.jacaro.school.cs4308.parser.generator.expressions
 
 import dev.jacaro.school.cs4308.errors.ExpressionGenerationError
-import dev.jacaro.school.cs4308.expressions.Addition
 import dev.jacaro.school.cs4308.expressions.Expression
-import dev.jacaro.school.cs4308.expressions.GreaterThanOperator
 import dev.jacaro.school.cs4308.expressions.Operators
 import dev.jacaro.school.cs4308.ids.IDManager
-import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.generator.lists.ListGenerator
 import dev.jacaro.school.cs4308.structure.Token
 import dev.jacaro.school.cs4308.values.CString
 import dev.jacaro.school.cs4308.values.ID
-import dev.jacaro.school.cs4308.values.Integer
 import dev.jacaro.school.cs4308.values.Real
 
 

@@ -16,7 +16,8 @@ object ExpressionTreeBuilder {
         NotBuilderExtension,
         NotEqualBuilderExtension,
         EqualBuildExtension,
-        StandardNumberBuilderExtension
+        StandardNumberBuilderExtension,
+        PlusBuilderExtension
     )
 
     fun buildTree(postFix: Array<ExpressionWrap<*>>) : Value<*> {

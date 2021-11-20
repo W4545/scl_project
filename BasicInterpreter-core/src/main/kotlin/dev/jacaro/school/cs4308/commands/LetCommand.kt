@@ -19,7 +19,8 @@ data class LetCommand(val id: ID, val expression: Expression<*>) : Action {
             is Int -> Integer(value)
             is String -> CString(value)
             is Boolean -> CBoolean(value)
-            else -> throw RuntimeException("Illegal expression type attempted to be assigned to ID \"$id\"")
+            else -> throw RuntimeException("Illegal expression type attempted to be assigned to ID \"$id\"." +
+                    "Let command was provided value $value.")
         }
     }
 }

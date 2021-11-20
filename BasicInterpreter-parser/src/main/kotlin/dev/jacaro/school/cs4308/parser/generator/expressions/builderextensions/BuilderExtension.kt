@@ -2,11 +2,8 @@ package dev.jacaro.school.cs4308.parser.generator.expressions.builderextensions
 
 import dev.jacaro.school.cs4308.expressions.Operators
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionWrap
-import dev.jacaro.school.cs4308.values.ID
 import dev.jacaro.school.cs4308.values.Value
-import java.lang.RuntimeException
 import java.util.*
-import kotlin.reflect.typeOf
 
 /**
  * An interface for building a tree using a stack.

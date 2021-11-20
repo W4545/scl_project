@@ -2,8 +2,6 @@ package dev.jacaro.school.cs4308.expressions
 
 import dev.jacaro.school.cs4308.values.ID
 import dev.jacaro.school.cs4308.values.Value
-import kotlin.jvm.internal.Reflection
-import kotlin.reflect.full.functions
 import kotlin.reflect.typeOf
 
 /**

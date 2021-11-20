@@ -18,7 +18,8 @@ data class NextCommand(val id: ID) : Action {
         val first = state.forLoopControls.first
 
         if (first.cause.letCommand.id != id)
-            throw RuntimeException("Mismatched for loops. Expected ID ${state.forLoopControls.first.cause.letCommand.id}.")
+            throw RuntimeException("Mismatched for loops. " +
+                    "Expected ID ${state.forLoopControls.first.cause.letCommand.id}.")
 
         if (first.nextCommandLine == null)
             first.nextCommandLine = state.currentLine

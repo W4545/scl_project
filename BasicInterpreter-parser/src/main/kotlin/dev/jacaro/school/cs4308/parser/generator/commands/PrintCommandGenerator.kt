@@ -2,9 +2,6 @@ package dev.jacaro.school.cs4308.parser.generator.commands
 
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.commands.PrintCommand
-import dev.jacaro.school.cs4308.parser.generator.IntConstantGenerator
-import dev.jacaro.school.cs4308.parser.generator.expectToken
-import dev.jacaro.school.cs4308.parser.generator.genOrThrow
 import dev.jacaro.school.cs4308.parser.generator.isHeadOrNull
 import dev.jacaro.school.cs4308.parser.generator.lists.PrintListGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator

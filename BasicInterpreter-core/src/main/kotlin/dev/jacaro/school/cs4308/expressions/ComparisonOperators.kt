@@ -8,7 +8,7 @@ import java.lang.RuntimeException
  * Middleware that implements some specifics for basic numeric comparison operators.
  */
 open class BasicComparisonOperator(left: Value<Double>, right: Value<Double>, private val operationFun: () -> Boolean)
-    : ComparisonOperator(left, right) {
+    : OperatorImpl<Double, Boolean>(left, right) {
 
     override val value: Double
         get() = throw RuntimeException("Illegal Operation")
