@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Main entry point for program.
+ */
 public class Main {
 
     private static String loadFile(File file) throws FileReadError {
@@ -47,7 +50,7 @@ public class Main {
                     continue;
                 }
             }
-
+            // Load files
             var file = new File(arg);
             if (file.exists()) {
                 try {

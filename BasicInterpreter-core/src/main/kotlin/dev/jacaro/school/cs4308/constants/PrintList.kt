@@ -2,6 +2,10 @@ package dev.jacaro.school.cs4308.constants
 
 import dev.jacaro.school.cs4308.expressions.Expression
 
+/**
+ * Wrapper type for an array of expressions.
+ * @see Expression
+ */
 data class PrintList(val expressionList: Array<Expression<*>>) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

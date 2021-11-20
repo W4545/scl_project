@@ -1,5 +1,8 @@
 package dev.jacaro.school.cs4308.expressions
 
+/**
+ * Specifies 15 levels of priority.
+ */
 enum class Priority {
     ONE,
     POWER,

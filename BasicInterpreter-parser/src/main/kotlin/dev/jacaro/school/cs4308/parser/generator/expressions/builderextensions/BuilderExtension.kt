@@ -8,6 +8,9 @@ import java.lang.RuntimeException
 import java.util.*
 import kotlin.reflect.typeOf
 
+/**
+ * An interface for building a tree using a stack.
+ */
 interface BuilderExtension {
 
     fun action(expressionWrap: ExpressionWrap<*>, stack: Deque<Value<*>>)
@@ -16,6 +19,9 @@ interface BuilderExtension {
 
 }
 
+/**
+ * Returns true if the wrapper [ExpressionWrap] holds one of the provided [operators][Operators]
+ */
 fun basicAccept(expressionWrap: ExpressionWrap<*>, vararg operators: Operators) : Boolean {
     if (expressionWrap.value !is Operators)
         return false
@@ -27,6 +33,9 @@ fun basicAccept(expressionWrap: ExpressionWrap<*>, vararg operators: Operators) 
     return false
 }
 
+/**
+ * Builder function. Creates anonymous builder extensions for the provided operators. Uses lambdas to build the tree.
+ */
 @Suppress("UNCHECKED_CAST") inline fun <reified T> standardBuilderExtensionGenerator(vararg operators: Operators, unary: Boolean = false, crossinline generator: (ExpressionWrap<*>, Value<T>, Value<T>?) -> Value<*>) : BuilderExtension {
 
     return object : BuilderExtension {
@@ -49,6 +58,9 @@ fun basicAccept(expressionWrap: ExpressionWrap<*>, vararg operators: Operators) 
     }
 }
 
+/**
+ * BuilderExtension that adds numeric values onto the stack
+ */
 object StandardNumberBuilderExtension : BuilderExtension {
     override fun action(expressionWrap: ExpressionWrap<*>, stack: Deque<Value<*>>) {
         stack.push(expressionWrap.value as Value<*>)

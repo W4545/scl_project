@@ -1,5 +1,8 @@
 package dev.jacaro.school.cs4308.values
 
+/**
+ * [RawType] for integers
+ */
 class Integer(private val integer: Int) : RawType<Int> {
     override val value: Double
         get() = integer.toDouble()

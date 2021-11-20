@@ -5,6 +5,10 @@ import dev.jacaro.school.cs4308.parser.generator.commands.allGenerators
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Statement
 
+/**
+ * Generates statements
+ * @see Statement
+ */
 object StatementGenerator : Generator<Statement> {
     override fun generate(head: Head): Statement? {
         for (generator in allGenerators) {

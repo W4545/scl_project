@@ -8,6 +8,11 @@ import dev.jacaro.school.cs4308.parser.generator.lists.IDListGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates [ReadCommands][ReadCommand]
+ * @see Generator
+ * @see isHeadOrNull
+ */
 object ReadCommandGenerator : Generator<ReadCommand> {
     override fun generate(head: Head): ReadCommand? = isHeadOrNull(head, Token.READ) {
         val idList = genOrThrow(head, IDListGenerator)

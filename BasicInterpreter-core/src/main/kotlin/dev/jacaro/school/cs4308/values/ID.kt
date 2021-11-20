@@ -3,7 +3,10 @@ package dev.jacaro.school.cs4308.values
 import dev.jacaro.school.cs4308.errors.VariableInitializationError
 import dev.jacaro.school.cs4308.errors.constraints.NumericConstraintError
 
-
+/**
+ * Variable class. Can be any type. Typing is enforced at runtime. Uses a [backerProperty] that is a [RawType].
+ * IDs. cannot be assigned another ID.
+ */
 class ID(val id: String, backerProperty: RawType<*>? = null) : Value<Any> {
 
     private val constraints = emptySet<IDConstraint>().toMutableSet()

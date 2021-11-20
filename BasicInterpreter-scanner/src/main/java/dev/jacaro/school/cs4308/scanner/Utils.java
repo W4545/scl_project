@@ -5,6 +5,9 @@ import dev.jacaro.school.cs4308.structure.Type;
 
 import java.util.ArrayList;
 
+/**
+ * Utility class for filtering.
+ */
 public class Utils {
 
     private Utils() {}

@@ -9,6 +9,10 @@ import dev.jacaro.school.cs4308.parser.generator.genOrThrow
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates [GoSubCommands][GoSubCommand]
+ * @see Generator
+ */
 object GoSubCommandGenerator : Generator<GoSubCommand> {
     override fun generate(head: Head): GoSubCommand? = if (head.isToken(Token.GOSUB)) {
         head.inc()

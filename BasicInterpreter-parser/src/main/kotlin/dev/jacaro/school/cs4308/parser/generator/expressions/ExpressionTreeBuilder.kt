@@ -4,6 +4,9 @@ import dev.jacaro.school.cs4308.parser.generator.expressions.builderextensions.*
 import dev.jacaro.school.cs4308.values.Value
 import java.util.ArrayDeque
 
+/**
+ * Builds an expression tree using the provided builders and postfix array
+ */
 object ExpressionTreeBuilder {
     private val builderExtensions = arrayOf(
         StandardNumberOperationBuilderExtension,

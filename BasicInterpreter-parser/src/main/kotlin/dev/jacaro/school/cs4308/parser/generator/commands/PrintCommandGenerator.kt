@@ -10,6 +10,11 @@ import dev.jacaro.school.cs4308.parser.generator.lists.PrintListGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates [PrintCommands][PrintCommand]
+ * @see Generator
+ * @see isHeadOrNull
+ */
 object PrintCommandGenerator : Generator<PrintCommand> {
     override fun generate(head: Head): PrintCommand? = isHeadOrNull(head, Token.PRINT) {
         val printList = PrintListGenerator.generate(head)

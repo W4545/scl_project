@@ -4,6 +4,9 @@ import dev.jacaro.school.cs4308.values.CBoolean
 import dev.jacaro.school.cs4308.values.Value
 import java.lang.RuntimeException
 
+/**
+ * Implements the unary boolean not operator.
+ */
 class NotOperator(value: Value<Boolean>) : OperatorImpl<Boolean, Boolean>(value, null) {
 
     override val value: Double

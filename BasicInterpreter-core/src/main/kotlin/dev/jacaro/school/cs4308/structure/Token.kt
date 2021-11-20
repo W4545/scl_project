@@ -1,7 +1,8 @@
 package dev.jacaro.school.cs4308.structure
 
-import dev.jacaro.school.cs4308.expressions.Priority
-
+/**
+ * Enum class that tracts all the tokens that are allowed inside source files.
+ */
 enum class Token {
     REM,
     DATA,

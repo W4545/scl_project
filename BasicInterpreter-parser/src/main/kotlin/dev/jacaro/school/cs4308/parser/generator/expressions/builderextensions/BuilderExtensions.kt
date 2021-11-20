@@ -2,6 +2,9 @@ package dev.jacaro.school.cs4308.parser.generator.expressions.builderextensions
 
 import dev.jacaro.school.cs4308.expressions.*
 
+/**
+ * Generates comparison operators when building expressions
+ */
 val ComparisonOperatorBuilderExtension = standardBuilderExtensionGenerator<Double>(
     Operators.GREATER_THAN,
     Operators.GREATER_OR_EQUAL_TO,
@@ -17,6 +20,9 @@ val ComparisonOperatorBuilderExtension = standardBuilderExtensionGenerator<Doubl
     }
 }
 
+/**
+ * Generates AND and OR operators when building an expression.
+ */
 val AndOrBuilderExtension = standardBuilderExtensionGenerator<Boolean>(
     Operators.AND,
     Operators.OR) { expressionWrap, left, right ->
@@ -28,6 +34,9 @@ val AndOrBuilderExtension = standardBuilderExtensionGenerator<Boolean>(
     }
 }
 
+/**
+ * Generates unary operators when building an expression
+ */
 val UnaryNumberBuilderExtension = standardBuilderExtensionGenerator<Double>(
     Operators.UNARY_PLUS,
     Operators.UNARY_MINUS,
@@ -40,6 +49,9 @@ val UnaryNumberBuilderExtension = standardBuilderExtensionGenerator<Double>(
     }
 }
 
+/**
+ * Generates not operator when building an expression
+ */
 val NotBuilderExtension = standardBuilderExtensionGenerator<Boolean>(
     Operators.NOT,
     unary = true) { _, left, _ ->

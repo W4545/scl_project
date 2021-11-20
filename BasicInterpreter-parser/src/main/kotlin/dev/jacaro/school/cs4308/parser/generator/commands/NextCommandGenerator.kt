@@ -8,6 +8,11 @@ import dev.jacaro.school.cs4308.parser.generator.isHeadOrNull
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates [NextCommands][NextCommand]
+ * @see Generator
+ * @see isHeadOrNull
+ */
 object NextCommandGenerator : Generator<NextCommand> {
     override fun generate(head: Head): NextCommand? = isHeadOrNull(head, Token.NEXT) {
         val id = genOrThrow(head, IDGenerator)

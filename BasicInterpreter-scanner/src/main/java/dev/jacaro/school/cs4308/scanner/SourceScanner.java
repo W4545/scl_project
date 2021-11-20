@@ -6,6 +6,9 @@ import dev.jacaro.school.cs4308.structure.Matcher;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Generates Lexemes using the defined matchers.
+ */
 public class SourceScanner {
 
     private SourceScanner() {

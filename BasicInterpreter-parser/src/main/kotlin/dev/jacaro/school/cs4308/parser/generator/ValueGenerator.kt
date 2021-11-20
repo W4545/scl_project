@@ -7,6 +7,12 @@ import dev.jacaro.school.cs4308.structure.Lexeme
 import dev.jacaro.school.cs4308.structure.Token
 import dev.jacaro.school.cs4308.values.*
 
+/**
+ * Generates values. Allows for control over whether IDs are allowed to be generated
+ * @see Generator
+ * @see Value
+ * @see ID
+ */
 private class ValueGeneratorImpl(val allowIDs: Boolean) : Generator<Value<*>> {
 
     override fun generate(head: Head): Value<*>? {
@@ -42,7 +48,18 @@ private class ValueGeneratorImpl(val allowIDs: Boolean) : Generator<Value<*>> {
 
 }
 
+/**
+ * Generates values, including IDs.
+ * @see ValueGeneratorImpl
+ * @see Value
+ * @see ID
+ */
 val ValueGenerator : Generator<Value<*>> = ValueGeneratorImpl(true)
 
-
+/**
+ * Generates RawType values
+ * @see ValueGeneratorImpl
+ * @see RawType
+ * @see Value
+ */
 @Suppress("UNCHECKED_CAST") val ValueGeneratorNoIDs : Generator<RawType<*>> = ValueGeneratorImpl(false) as Generator<RawType<*>>

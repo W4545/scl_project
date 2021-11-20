@@ -5,6 +5,9 @@ import dev.jacaro.school.cs4308.parser.generator.LineGenerator
 import dev.jacaro.school.cs4308.structure.Line
 import dev.jacaro.school.cs4308.structure.Lexeme
 
+/**
+ * Parses [lexemes][Lexeme] into a series of line objects.
+ */
 object Parser {
 
     fun parse(lexemes: Array<Lexeme>) : Array<Line> {

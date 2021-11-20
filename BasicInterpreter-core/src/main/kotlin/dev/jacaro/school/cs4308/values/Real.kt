@@ -1,5 +1,8 @@
 package dev.jacaro.school.cs4308.values
 
+/**
+ * [RawType] for doubles
+ */
 class Real(private val double: Double) : RawType<Double> {
     override val value: Double
         get() = double

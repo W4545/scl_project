@@ -12,6 +12,11 @@ import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.IfThen
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates [IfThen] statements
+ * @see Generator
+ * @see IfThen
+ */
 object IfThenGenerator : Generator<IfThen> {
     override fun generate(head: Head): IfThen? = if (head.isToken(Token.IF)) {
         head.inc()

@@ -2,6 +2,9 @@ package dev.jacaro.school.cs4308.expressions
 
 import dev.jacaro.school.cs4308.values.Value
 
+/**
+ * Middleware class that implements equals and hashcode methods.
+ */
 abstract class OperatorImpl<T, R>(val left: Value<T>, val right: Value<T>?) : Operator<R> {
 
     override fun equals(other: Any?): Boolean {

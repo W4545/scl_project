@@ -6,7 +6,12 @@ import kotlin.jvm.internal.Reflection
 import kotlin.reflect.full.functions
 import kotlin.reflect.typeOf
 
-data class Expression<T>(val expression: Value<T>) : Operator<T> {
+/**
+ * The base expression type. Holds the root of an expression tree that evaluates to some value T.
+ * @param expression Root of a tree structure.
+ * @see Value
+ */
+data class Expression<T>(val expression: Value<T>) : Value<T> {
 
     override val value: Double
         get() = expression.value
@@ -30,10 +35,7 @@ data class Expression<T>(val expression: Value<T>) : Operator<T> {
         return "Expression(expression=$expression)"
     }
 
-    override fun operation(): Value<T> = expression
-
     companion object {
-        @OptIn(ExperimentalStdlibApi::class)
         inline fun<reified T> validate(expression: Expression<*>) : Boolean {
             println()
             return expression.expression is ID || expression.expression::class.members.find { it.name == "raw" }?.returnType == typeOf<T>()

@@ -3,21 +3,42 @@ package dev.jacaro.school.cs4308.structure
 import dev.jacaro.school.cs4308.ids.IDManager
 import dev.jacaro.school.cs4308.values.Integer
 import dev.jacaro.school.cs4308.values.Value
+import dev.jacaro.school.cs4308.commands.DataCommand
+import dev.jacaro.school.cs4308.commands.ReadCommand
 import java.lang.RuntimeException
 import java.util.*
 
+/**
+ * Holds the current state of execution
+ * @param idManager the active [IDManager]
+ */
 class State(val idManager: IDManager, val lines: Array<Line>) {
 
+    /**
+     * A map of line numbers associated to lines
+     */
     val lineMap = lines.associateBy { it.lineNumber }
 
+    /**
+     * A stack of [ForLoopControls][ForLoopControl]
+     */
     val forLoopControls: Deque<ForLoopControl> = ArrayDeque()
 
+    /**
+     * A stack of [SubRoutineControls][SubRoutineControl]
+     */
     val goSubControls: Deque<SubRoutineControl> = ArrayDeque()
 
+    /**
+     * A queue of data. Data is provided by [DATA commands][DataCommand] and used by [READ commands][ReadCommand].
+     */
     val dataQueue: Deque<Value<*>> = ArrayDeque()
 
     var stopExecution = false
 
+    /**
+     * Tells the execution engine to not increment the line. Used by control structures, subroutines, goto commands.
+     */
     var doNotIncrementLine: Boolean = false
 
     private var currentLineArrayPosition = 0
@@ -32,6 +53,9 @@ class State(val idManager: IDManager, val lines: Array<Line>) {
     var currentLine: Line = lines.first()
     private set
 
+    /**
+     * Changes the current executing line to the provided [Integer], [Int], or [Line].
+     */
     fun setNextLine(integer: Integer? = null, int: Int? = null, line: Line? = null) : Boolean {
         integer?.let {
             if(lineMap.keys.contains(it)) {
@@ -59,6 +83,9 @@ class State(val idManager: IDManager, val lines: Array<Line>) {
         return false
     }
 
+    /**
+     * Returns the next line to be executed.
+     */
     fun nextLine(): Line {
         return lines[currentLineArrayPosition + 1]
     }

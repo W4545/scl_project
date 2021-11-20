@@ -3,6 +3,10 @@ package dev.jacaro.school.cs4308.parser
 import dev.jacaro.school.cs4308.structure.Lexeme
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Tracks the current position of the parser
+ * @see Lexeme
+ */
 class Head(val lexemes: Array<Lexeme>, current: Int = 0) {
 
     var currentHead = current

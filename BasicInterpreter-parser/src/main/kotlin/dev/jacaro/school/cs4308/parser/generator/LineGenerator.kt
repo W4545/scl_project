@@ -7,6 +7,11 @@ import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Line
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates [Line] objects
+ * @see Generator
+ * @see Line
+ */
 object LineGenerator : Generator<Line> {
     override fun generate(head: Head): Line? {
         if (head.currentHead >= head.lexemes.size)

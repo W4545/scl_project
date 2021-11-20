@@ -1,12 +1,15 @@
 package dev.jacaro.school.cs4308.parser.generator
 
-import dev.jacaro.school.cs4308.errors.ParsingError
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.generator.lists.ListGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
 import dev.jacaro.school.cs4308.values.Integer
 
+/**
+ * Generates integer constants
+ * @see Generator
+ * @see Integer
+ */
 object IntConstantGenerator: Generator<Integer> {
     override fun generate(head: Head): Integer? {
         return when (head.current.token) {

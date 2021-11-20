@@ -1,5 +1,8 @@
 package dev.jacaro.school.cs4308.values
 
+/**
+ * [RawType] for strings
+ */
 class CString(private val string: String) : RawType<String> {
     override val value: Double
         get() = string.hashCode().toDouble()

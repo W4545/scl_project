@@ -6,6 +6,9 @@ import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionWrap
 import dev.jacaro.school.cs4308.values.Value
 import java.util.*
 
+/**
+ * Generates NotEqual operators when building expressions
+ */
 object NotEqualBuilderExtension : BuilderExtension {
     override fun action(expressionWrap: ExpressionWrap<*>, stack: Deque<Value<*>>) {
         val right = stack.pop()

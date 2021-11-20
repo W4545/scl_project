@@ -1,7 +1,8 @@
 package dev.jacaro.school.cs4308.values
 
-import kotlin.Boolean
-
+/**
+ * [RawType] for booleans
+ */
 class CBoolean(val boolean: Boolean) : RawType<Boolean> {
     override val value: Double
         get() = if (boolean) 1.0 else 0.0

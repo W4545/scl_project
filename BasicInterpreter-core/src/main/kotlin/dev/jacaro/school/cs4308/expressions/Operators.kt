@@ -2,6 +2,13 @@ package dev.jacaro.school.cs4308.expressions
 
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Defines an Enum class for all the valid operators in an expression.
+ * @param token the token that corresponds to the operator
+ * @param priority Specifies the priority of the operator. Lower numbers are higher priority.
+ * @param leftAssociative Specifies the associativity of the operator. Default: true
+ * @param unary Specifies if the operator is unary. Default: false
+ */
 enum class Operators(val token: Token, val priority: Priority, val leftAssociative: Boolean = true, val unary: Boolean = false) {
     NOT_EQUAL(Token.OP_NOT_EQUAL, Priority.SEVEN),
     EQUAL(Token.OP_EQUALS, Priority.SEVEN),

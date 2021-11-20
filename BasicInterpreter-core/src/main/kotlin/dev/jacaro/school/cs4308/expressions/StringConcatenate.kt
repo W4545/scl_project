@@ -4,6 +4,9 @@ import dev.jacaro.school.cs4308.values.CString
 import dev.jacaro.school.cs4308.values.Value
 import java.lang.RuntimeException
 
+/**
+ * Implements a string concatenate operator
+ */
 class StringConcatenate(left: Value<String>, right: Value<String>) : OperatorImpl<String, String>(left, right) {
 
     override val value: Double

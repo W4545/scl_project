@@ -8,6 +8,11 @@ import dev.jacaro.school.cs4308.structure.Token
 import dev.jacaro.school.cs4308.values.Integer
 import dev.jacaro.school.cs4308.values.Real
 
+/**
+ * Generate Real constants
+ * @see Generator
+ * @see Real
+ */
 object RealGenerator : Generator<Real> {
     override fun generate(head: Head): Real? {
         return when (head.current.token) {

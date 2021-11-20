@@ -2,6 +2,9 @@ package dev.jacaro.school.cs4308.parser.generator.expressions.builderextensions
 
 import dev.jacaro.school.cs4308.expressions.*
 
+/**
+ * Generates standard math operators except for addition.
+ */
 val StandardNumberOperationBuilderExtension = standardBuilderExtensionGenerator<Double>(
     Operators.MINUS,
     Operators.MULTIPLY,

@@ -6,6 +6,9 @@ import dev.jacaro.school.cs4308.scanner.Utils;
 import dev.jacaro.school.cs4308.structure.Lexeme;
 import dev.jacaro.school.cs4308.structure.Type;
 
+/**
+ * Debug outputs for debugging.
+ */
 public class DebugOutputs {
 
     public static void printFile(Lexeme[] array) {

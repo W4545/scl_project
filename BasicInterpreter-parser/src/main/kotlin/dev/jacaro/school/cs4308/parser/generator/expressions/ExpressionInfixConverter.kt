@@ -8,6 +8,9 @@ import java.util.*
 
 object ExpressionInfixConverter {
 
+    /**
+     * Determines if a plus or minus sign is acting as a unary operator and replaces it with its unary counterpart.
+     */
     private fun unaryPreProcessing(infix: Array<ExpressionWrap<*>>): Array<ExpressionWrap<*>> {
         val processableOperators = arrayOf(Operators.PLUS, Operators.MINUS)
 
@@ -34,8 +37,10 @@ object ExpressionInfixConverter {
         }.toTypedArray()
     }
 
-    @Suppress("UNCHECKED_CAST")
-    fun infixToPostfix(infix: Array<ExpressionWrap<*>>): Array<ExpressionWrap<*>> {
+    /**
+     * Converts an expression from its infix form to postfix for tree generation.
+     */
+    @Suppress("UNCHECKED_CAST") fun infixToPostfix(infix: Array<ExpressionWrap<*>>): Array<ExpressionWrap<*>> {
         val processed = unaryPreProcessing(infix)
 
         val output = emptyList<ExpressionWrap<*>>().toMutableList()

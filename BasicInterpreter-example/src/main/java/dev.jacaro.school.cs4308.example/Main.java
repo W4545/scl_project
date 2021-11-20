@@ -1,7 +1,9 @@
 package dev.jacaro.school.cs4308.example;
 
 
-
+/**
+ * Example execution program. Executes all three provided files.
+ */
 public class Main {
 
     public static void main(String[] args) {

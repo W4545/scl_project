@@ -2,6 +2,9 @@ package dev.jacaro.school.cs4308.structure;
 
 import java.util.regex.Pattern;
 
+/**
+ * A matcher that uses Regular expressions to generate Lexemes.
+ */
 public class RegexMatcher implements Matcher {
 
     private final Pattern pattern;

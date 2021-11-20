@@ -14,6 +14,10 @@ import dev.jacaro.school.cs4308.parser.generator.structures.StatementGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates a List using the provided generator and list delimiter. Uses the anonymous function [refBuild] to build
+ * individual types.
+ */
 class GenListGenerator<T, E> internal constructor(
     private val generator: Generator<T>,
     private val delimiter: Token = Token.OP_COMMA,
@@ -47,26 +51,56 @@ class GenListGenerator<T, E> internal constructor(
         get() = "List of ${generator.result}"
 }
 
+/**
+ * Generates a list of Expressions
+ * @see GenListGenerator
+ * @see ExpressionGenerator
+ */
 val ExpressionListGenerator = GenListGenerator(ExpressionGenerator) {
     ExpressionList(it.toTypedArray())
 }
 
+/**
+ * Generates a list of values
+ * @see GenListGenerator
+ * @see ValueGenerator
+ */
 val ValueListGenerator = GenListGenerator(ValueGenerator) {
     ValueList(it.toTypedArray())
 }
 
+/**
+ * Generates a list of printable values
+ * @see GenListGenerator
+ * @see ExpressionGenerator
+ */
 val PrintListGenerator = GenListGenerator(ExpressionGenerator, Token.OP_SEMICOLON) {
     PrintList(it.toTypedArray())
 }
 
+/**
+ * Generates a list of statements
+ * @see GenListGenerator
+ * @see StatementsGenerator
+ */
 val StatementsGenerator = GenListGenerator(StatementGenerator, Token.OP_COLON) {
     it.toTypedArray()
 }
 
+/**
+ * Generates a list of constants
+ * @see GenListGenerator
+ * @see ValueGeneratorNoIDs
+ */
 val ConstantListGenerator = GenListGenerator(ValueGeneratorNoIDs) {
     ConstantList(it.toTypedArray())
 }
 
+/**
+ * Generates a list of IDs
+ * @see GenListGenerator
+ * @see IDGenerator
+ */
 val IDListGenerator = GenListGenerator(IDGenerator) {
     IDList(it.toTypedArray())
 }

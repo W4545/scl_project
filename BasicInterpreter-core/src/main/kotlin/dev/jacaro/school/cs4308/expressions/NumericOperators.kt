@@ -4,6 +4,10 @@ import dev.jacaro.school.cs4308.values.Real
 import dev.jacaro.school.cs4308.values.Value
 import kotlin.math.pow
 
+/**
+ * A necessary wrapper to allow any value type to be based to certain operators.
+ * @param backerValue a value to be passed through the AnyWrap
+ */
 class AnyWrap(val backerValue: Value<*>) : Value<Any> {
     override val value: Double
         get() = backerValue.value
@@ -26,6 +30,9 @@ class AnyWrap(val backerValue: Value<*>) : Value<Any> {
     override fun toString(): String = backerValue.toString()
 }
 
+/**
+ * Middleware for the numeric operators. Implements some necessary fields from the implementing [Value].
+ */
 abstract class NumericOperator internal constructor(left: Value<Double>, right: Value<Double>) : OperatorImpl<Double, Double>(left, right) {
     override val value: Double
         get() = operation().value
@@ -36,6 +43,9 @@ abstract class NumericOperator internal constructor(left: Value<Double>, right: 
     }
 }
 
+/**
+ * Add two double values together
+ */
 class Addition(left: Value<Double>, right: Value<Double>) : NumericOperator(left, right) {
     override fun operation(): Value<Double> {
         return Real(left.value + right!!.value)
@@ -46,6 +56,9 @@ class Addition(left: Value<Double>, right: Value<Double>) : NumericOperator(left
     }
 }
 
+/**
+ * Subtract two double values
+ */
 class Subtraction(left: Value<Double>, right: Value<Double>) : NumericOperator(left, right) {
     override fun operation(): Value<Double> {
         return Real(left.value - right!!.value)
@@ -55,7 +68,9 @@ class Subtraction(left: Value<Double>, right: Value<Double>) : NumericOperator(l
         return "Subtraction(left=$left, right=$right)"
     }
 }
-
+/**
+ * Multiply two double values
+ */
 class Multiplication(left: Value<Double>, right: Value<Double>) : NumericOperator(left, right) {
     override fun operation(): Value<Double> {
         return Real(left.value * right!!.value)
@@ -66,6 +81,9 @@ class Multiplication(left: Value<Double>, right: Value<Double>) : NumericOperato
     }
 }
 
+/**
+ * Divide two double values
+ */
 class Division(left: Value<Double>, right: Value<Double>) : NumericOperator(left, right) {
     override fun operation(): Value<Double> {
         return Real(left.value / right!!.value)
@@ -76,6 +94,9 @@ class Division(left: Value<Double>, right: Value<Double>) : NumericOperator(left
     }
 }
 
+/**
+ * Raise a double value to the value of another double value
+ */
 class Power(left: Value<Double>, right: Value<Double>) : NumericOperator(left, right) {
     override fun operation(): Value<Double> {
         return Real(left.value.pow(right!!.value))
@@ -86,6 +107,9 @@ class Power(left: Value<Double>, right: Value<Double>) : NumericOperator(left, r
     }
 }
 
+/**
+ * Makes a double value positive
+ */
 class UnaryPlus(value: Value<Double>) : OperatorImpl<Double, Double>(value, null) {
 
     override val value: Double
@@ -98,6 +122,9 @@ class UnaryPlus(value: Value<Double>) : OperatorImpl<Double, Double>(value, null
     }
 }
 
+/**
+ * Makes a double value negative
+ */
 class UnaryMinus(value: Value<Double>) : OperatorImpl<Double, Double>(value, null) {
 
     override val value: Double

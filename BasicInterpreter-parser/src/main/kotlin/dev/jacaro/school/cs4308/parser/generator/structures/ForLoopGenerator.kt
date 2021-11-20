@@ -8,6 +8,11 @@ import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.ForLoop
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates for loops
+ * @see Generator
+ * @see ForLoop
+ */
 object ForLoopGenerator : Generator<ForLoop> {
     override fun generate(head: Head): ForLoop? = if (head.isToken(Token.FOR)) {
         head.inc()

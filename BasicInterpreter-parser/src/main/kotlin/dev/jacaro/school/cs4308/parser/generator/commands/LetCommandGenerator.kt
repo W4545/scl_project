@@ -7,6 +7,11 @@ import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.structure.Token
 
+/**
+ * Generates [LetCommands][LetCommand]
+ * @see Generator
+ * @see isHeadOrNull
+ */
 object LetCommandGenerator : Generator<LetCommand> {
     override fun generate(head: Head): LetCommand? = isHeadOrNull(head, Token.LET) {
         val id = genOrThrow(head, IDGenerator)

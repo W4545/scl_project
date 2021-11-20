@@ -22,7 +22,10 @@ private val expectedTokens = Operators.values().map { it.token }
         Token.INTEGER,
         Token.REAL)).toTypedArray()
 
-
+/**
+ * Generates an expression. This could be any type of expression. Expression return type is enforced later.
+ * @see ListGenerator
+ */
 object ExpressionGenerator : ListGenerator<Expression<*>>(expectedTokens, { lexemes ->
     val expressionWrapped: Array<ExpressionWrap<*>> = lexemes.map { lexeme ->
         when(lexeme.token) {

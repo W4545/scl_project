@@ -5,6 +5,11 @@ import dev.jacaro.school.cs4308.structure.Action
 import dev.jacaro.school.cs4308.structure.State
 import dev.jacaro.school.cs4308.values.*
 
+/**
+ * Assigns the value of the provided [Expression] to the given [ID].
+ * @see Expression
+ * @see ID
+ */
 data class LetCommand(val id: ID, val expression: Expression<*>) : Action {
     override fun action(state: State) {
         val value = expression.expression.raw
