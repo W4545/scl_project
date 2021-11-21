@@ -1,9 +1,9 @@
 package dev.jacaro.school.cs4308.executor
 
-import dev.jacaro.school.cs4308.commands.DataCommand
-import dev.jacaro.school.cs4308.ids.IDManager
-import dev.jacaro.school.cs4308.structure.Line
-import dev.jacaro.school.cs4308.structure.State
+import dev.jacaro.school.cs4308.kotlin.commands.DataCommand
+import dev.jacaro.school.cs4308.kotlin.ids.IDManager
+import dev.jacaro.school.cs4308.kotlin.structure.Line
+import dev.jacaro.school.cs4308.kotlin.structure.State
 
 /**
  * Main execution control logic.

@@ -1,11 +1,11 @@
 package dev.jacaro.school.cs4308.parser.generator
 
-import dev.jacaro.school.cs4308.ids.IDManager
+import dev.jacaro.school.cs4308.kotlin.ids.IDManager
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.structure.Lexeme
-import dev.jacaro.school.cs4308.structure.Token
-import dev.jacaro.school.cs4308.values.*
+import dev.jacaro.school.cs4308.java.structure.Lexeme
+import dev.jacaro.school.cs4308.kotlin.structure.Token
+import dev.jacaro.school.cs4308.kotlin.values.*
 
 /**
  * Generates values. Allows for control over whether IDs are allowed to be generated

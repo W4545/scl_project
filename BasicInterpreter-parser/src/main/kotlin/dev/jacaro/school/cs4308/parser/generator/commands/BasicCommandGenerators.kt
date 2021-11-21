@@ -1,9 +1,9 @@
 package dev.jacaro.school.cs4308.parser.generator.commands
 
-import dev.jacaro.school.cs4308.commands.*
+import dev.jacaro.school.cs4308.kotlin.commands.*
 import dev.jacaro.school.cs4308.parser.generator.TokenGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.structure.Token
+import dev.jacaro.school.cs4308.kotlin.structure.Token
 
 /**
  * Generates [ReturnCommands][ReturnCommand]

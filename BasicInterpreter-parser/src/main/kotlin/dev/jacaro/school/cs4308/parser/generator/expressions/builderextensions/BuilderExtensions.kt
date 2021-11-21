@@ -1,6 +1,6 @@
 package dev.jacaro.school.cs4308.parser.generator.expressions.builderextensions
 
-import dev.jacaro.school.cs4308.expressions.*
+import dev.jacaro.school.cs4308.kotlin.expressions.*
 
 /**
  * Generates comparison operators when building expressions

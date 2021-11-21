@@ -1,11 +1,11 @@
 package dev.jacaro.school.cs4308.parser.generator.commands
 
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.commands.LetCommand
+import dev.jacaro.school.cs4308.kotlin.commands.LetCommand
 import dev.jacaro.school.cs4308.parser.generator.*
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.structure.Token
+import dev.jacaro.school.cs4308.kotlin.structure.Token
 
 /**
  * Generates [LetCommands][LetCommand]

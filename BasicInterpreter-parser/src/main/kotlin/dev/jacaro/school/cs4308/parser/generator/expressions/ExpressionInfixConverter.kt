@@ -1,8 +1,8 @@
 package dev.jacaro.school.cs4308.parser.generator.expressions
 
-import dev.jacaro.school.cs4308.errors.ExpressionGenerationError
-import dev.jacaro.school.cs4308.expressions.Operators
-import dev.jacaro.school.cs4308.values.*
+import dev.jacaro.school.cs4308.kotlin.errors.ExpressionGenerationError
+import dev.jacaro.school.cs4308.kotlin.expressions.Operators
+import dev.jacaro.school.cs4308.kotlin.values.*
 import java.lang.RuntimeException
 import java.util.*
 

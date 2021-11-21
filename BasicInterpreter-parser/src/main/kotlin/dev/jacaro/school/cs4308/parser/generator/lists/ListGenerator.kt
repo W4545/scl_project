@@ -1,11 +1,11 @@
 package dev.jacaro.school.cs4308.parser.generator.lists
 
-import dev.jacaro.school.cs4308.constants.IntegerList
+import dev.jacaro.school.cs4308.kotlin.constants.IntegerList
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.structure.Lexeme
-import dev.jacaro.school.cs4308.structure.Token
-import dev.jacaro.school.cs4308.values.Integer
+import dev.jacaro.school.cs4308.java.structure.Lexeme
+import dev.jacaro.school.cs4308.kotlin.structure.Token
+import dev.jacaro.school.cs4308.kotlin.values.Integer
 
 /**
  * Generates a list of type [T], using the provided tokens as reference. Uses anonymous functions to build the objects.

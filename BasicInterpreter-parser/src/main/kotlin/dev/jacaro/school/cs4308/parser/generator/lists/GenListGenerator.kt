@@ -1,18 +1,18 @@
 package dev.jacaro.school.cs4308.parser.generator.lists
 
-import dev.jacaro.school.cs4308.constants.ConstantList
-import dev.jacaro.school.cs4308.constants.IDList
+import dev.jacaro.school.cs4308.kotlin.constants.ConstantList
+import dev.jacaro.school.cs4308.kotlin.constants.IDList
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.constants.PrintList
-import dev.jacaro.school.cs4308.constants.ValueList
-import dev.jacaro.school.cs4308.expressions.ExpressionList
+import dev.jacaro.school.cs4308.kotlin.constants.PrintList
+import dev.jacaro.school.cs4308.kotlin.constants.ValueList
+import dev.jacaro.school.cs4308.kotlin.expressions.ExpressionList
 import dev.jacaro.school.cs4308.parser.generator.IDGenerator
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGeneratorNoIDs
 import dev.jacaro.school.cs4308.parser.generator.structures.StatementGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.structure.Token
+import dev.jacaro.school.cs4308.kotlin.structure.Token
 
 /**
  * Generates a List using the provided generator and list delimiter. Uses the anonymous function [refBuild] to build

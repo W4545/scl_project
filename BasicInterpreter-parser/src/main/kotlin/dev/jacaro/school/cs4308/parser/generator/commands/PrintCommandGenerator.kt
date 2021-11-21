@@ -1,11 +1,11 @@
 package dev.jacaro.school.cs4308.parser.generator.commands
 
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.commands.PrintCommand
+import dev.jacaro.school.cs4308.kotlin.commands.PrintCommand
 import dev.jacaro.school.cs4308.parser.generator.isHeadOrNull
 import dev.jacaro.school.cs4308.parser.generator.lists.PrintListGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.structure.Token
+import dev.jacaro.school.cs4308.kotlin.structure.Token
 
 /**
  * Generates [PrintCommands][PrintCommand]

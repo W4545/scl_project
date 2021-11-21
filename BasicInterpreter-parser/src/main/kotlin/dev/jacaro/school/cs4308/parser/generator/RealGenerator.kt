@@ -2,8 +2,8 @@ package dev.jacaro.school.cs4308.parser.generator
 
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.structure.Token
-import dev.jacaro.school.cs4308.values.Real
+import dev.jacaro.school.cs4308.kotlin.structure.Token
+import dev.jacaro.school.cs4308.kotlin.values.Real
 
 /**
  * Generate Real constants

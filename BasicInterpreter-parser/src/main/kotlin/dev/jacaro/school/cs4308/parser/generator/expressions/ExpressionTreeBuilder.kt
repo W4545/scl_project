@@ -1,7 +1,7 @@
 package dev.jacaro.school.cs4308.parser.generator.expressions
 
 import dev.jacaro.school.cs4308.parser.generator.expressions.builderextensions.*
-import dev.jacaro.school.cs4308.values.Value
+import dev.jacaro.school.cs4308.kotlin.values.Value
 import java.util.ArrayDeque
 
 /**

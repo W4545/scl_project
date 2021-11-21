@@ -1,11 +1,11 @@
 package dev.jacaro.school.cs4308;
 
-import dev.jacaro.school.cs4308.errors.FileReadError;
+import dev.jacaro.school.cs4308.java.errors.FileReadError;
 import dev.jacaro.school.cs4308.parser.Parser;
-import dev.jacaro.school.cs4308.structure.Line;
+import dev.jacaro.school.cs4308.kotlin.structure.Line;
 import dev.jacaro.school.cs4308.scanner.SourceFile;
 import dev.jacaro.school.cs4308.scanner.SourceScanner;
-import dev.jacaro.school.cs4308.structure.Token;
+import dev.jacaro.school.cs4308.kotlin.structure.Token;
 import dev.jacaro.school.cs4308.executor.Executor;
 
 import java.io.File;

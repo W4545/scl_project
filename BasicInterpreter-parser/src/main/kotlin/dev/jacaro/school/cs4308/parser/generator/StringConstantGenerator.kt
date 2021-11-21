@@ -1,7 +1,7 @@
 package dev.jacaro.school.cs4308.parser.generator
 
-import dev.jacaro.school.cs4308.structure.Token
-import dev.jacaro.school.cs4308.values.CString
+import dev.jacaro.school.cs4308.kotlin.structure.Token
+import dev.jacaro.school.cs4308.kotlin.values.CString
 
 /**
  * Generates a string constant

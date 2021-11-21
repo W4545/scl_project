@@ -1,7 +1,7 @@
 package dev.jacaro.school.cs4308.scanner;
 
-import dev.jacaro.school.cs4308.structure.Lexeme;
-import dev.jacaro.school.cs4308.structure.Type;
+import dev.jacaro.school.cs4308.java.structure.Lexeme;
+import dev.jacaro.school.cs4308.java.structure.Type;
 
 import java.util.ArrayList;
 

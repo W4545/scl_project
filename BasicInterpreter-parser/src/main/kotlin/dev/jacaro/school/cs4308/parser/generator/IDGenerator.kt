@@ -1,8 +1,8 @@
 package dev.jacaro.school.cs4308.parser.generator
 
-import dev.jacaro.school.cs4308.ids.IDManager
-import dev.jacaro.school.cs4308.values.ID
-import dev.jacaro.school.cs4308.structure.Token
+import dev.jacaro.school.cs4308.kotlin.ids.IDManager
+import dev.jacaro.school.cs4308.kotlin.values.ID
+import dev.jacaro.school.cs4308.kotlin.structure.Token
 
 /**
  * Generates IDs

@@ -1,7 +1,7 @@
 package dev.jacaro.school.cs4308.parser
 
-import dev.jacaro.school.cs4308.structure.Lexeme
-import dev.jacaro.school.cs4308.structure.Token
+import dev.jacaro.school.cs4308.java.structure.Lexeme
+import dev.jacaro.school.cs4308.kotlin.structure.Token
 
 /**
  * Tracks the current position of the parser

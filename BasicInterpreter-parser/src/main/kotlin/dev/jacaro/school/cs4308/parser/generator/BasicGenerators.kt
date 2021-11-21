@@ -1,15 +1,15 @@
 package dev.jacaro.school.cs4308.parser.generator
 
-import dev.jacaro.school.cs4308.errors.ExpressionGenerationError
-import dev.jacaro.school.cs4308.errors.ParsingError
-import dev.jacaro.school.cs4308.expressions.DoubleToInt
-import dev.jacaro.school.cs4308.expressions.Expression
+import dev.jacaro.school.cs4308.kotlin.errors.ExpressionGenerationError
+import dev.jacaro.school.cs4308.java.errors.ParsingError
+import dev.jacaro.school.cs4308.kotlin.expressions.DoubleToInt
+import dev.jacaro.school.cs4308.kotlin.expressions.Expression
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.structure.Lexeme
-import dev.jacaro.school.cs4308.structure.Token
-import dev.jacaro.school.cs4308.values.Value
+import dev.jacaro.school.cs4308.java.structure.Lexeme
+import dev.jacaro.school.cs4308.kotlin.structure.Token
+import dev.jacaro.school.cs4308.kotlin.values.Value
 import kotlin.reflect.typeOf
 
 /**
@@ -36,14 +36,24 @@ open class TokenGenerator<T>(private val token: Token, private val refBuild: Lex
  */
 fun expectToken(head: Head, token: Token) {
     if (!head.isToken(token))
-        throw ParsingError(String.format("Failed to parse file, expected %s", token))
+        throw ParsingError(
+            String.format(
+                "Failed to parse file, expected %s",
+                token
+            )
+        )
 }
 
 /**
  * Generates an object from the provided [Generator], otherwise it throws an exception.
  */
 fun<T> genOrThrow(head: Head, generator: Generator<T>) : T =
-    generator.generate(head) ?: throw ParsingError(String.format("Parsing Error, Expected token %s", generator.result))
+    generator.generate(head) ?: throw ParsingError(
+        String.format(
+            "Parsing Error, Expected token %s",
+            generator.result
+        )
+    )
 
 /**
  * This is black magic. This function generates an expression. After generation, it uses reflection to
@@ -53,7 +63,9 @@ fun<T> genOrThrow(head: Head, generator: Generator<T>) : T =
  */
 @Suppress("UNCHECKED_CAST")
 inline fun<reified T> genExpressionOrThrow(head: Head) : Expression<T> {
-    val expression = ExpressionGenerator.generate(head) ?: throw ParsingError(String.format("Parsing Error."))
+    val expression = ExpressionGenerator.generate(head) ?: throw ParsingError(
+        String.format("Parsing Error.")
+    )
 
     if (typeOf<T>().classifier?.toString() == "class kotlin.Int") {
         if (!Expression.validate<Double>(expression))

@@ -1,8 +1,8 @@
 package dev.jacaro.school.cs4308.parser.generator.expressions.builderextensions
 
-import dev.jacaro.school.cs4308.expressions.*
+import dev.jacaro.school.cs4308.kotlin.expressions.*
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionWrap
-import dev.jacaro.school.cs4308.values.Value
+import dev.jacaro.school.cs4308.kotlin.values.Value
 import java.util.*
 
 /**
