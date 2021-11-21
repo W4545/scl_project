@@ -20,7 +20,6 @@ compileJava.destinationDirectory.set(compileKotlin.destinationDirectory)
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.majorVersion
-        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
 

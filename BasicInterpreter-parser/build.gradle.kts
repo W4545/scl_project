@@ -7,7 +7,6 @@ plugins {
 
 dependencies {
     implementation(project(":BasicInterpreter-core"))
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
 }
 
 java {
@@ -22,7 +21,6 @@ compileJava.destinationDirectory.set(compileKotlin.destinationDirectory)
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "17"
-    kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
 }
 
 ext.properties["moduleName"] = "dev.jacaro.basicinterpreter.parser"
