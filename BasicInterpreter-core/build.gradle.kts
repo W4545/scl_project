@@ -23,4 +23,9 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     }
 }
 
+tasks {
+    build.configure {
+        dependsOn(clean)
+    }
+}
 ext.properties["moduleName"] = "dev.jacaro.basicinterpreter.core"

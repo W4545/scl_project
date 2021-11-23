@@ -16,8 +16,6 @@ data class Expression<T>(val expression: Value<T>) : Value<T> {
     override val raw: T
         get() = expression.raw
 
-    var let = 4
-
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Expression<*>) return false
