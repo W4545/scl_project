@@ -11,8 +11,8 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = Versions.JAVA_VERSION
+    targetCompatibility = Versions.JAVA_VERSION
 }
 
 application {
