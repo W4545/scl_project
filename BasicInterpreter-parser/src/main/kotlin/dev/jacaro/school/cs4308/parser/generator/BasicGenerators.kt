@@ -59,7 +59,7 @@ fun<T> genOrThrow(head: Head, generator: Generator<T>) : T =
  * This is black magic. This function generates an expression. After generation, it uses reflection to
  * ensure the return type of the expression is the expected return type, otherwise it throws an exception. The other
  * task is to wrap an expression with a [DoubleToInt] wrapper if the return type of the expression is an integer, since
- * expressions only work using double values on the back end.
+ * numeric expressions only work using double values on the back end.
  */
 @Suppress("UNCHECKED_CAST")
 inline fun<reified T> genExpressionOrThrow(head: Head) : Expression<T> {
