@@ -1,6 +1,7 @@
-package dev.jacaro.school.cs4308.java.structure;
+package dev.jacaro.school.cs4308.scanner.matcher;
 
-import dev.jacaro.school.cs4308.kotlin.structure.Token;
+import dev.jacaro.school.cs4308.java.structure.Lexeme;
+import dev.jacaro.school.cs4308.scanner.MatcherTokens;
 
 import java.util.regex.Pattern;
 
@@ -10,11 +11,11 @@ import java.util.regex.Pattern;
 public class RegexMatcher implements Matcher {
 
     private final Pattern pattern;
-    private final Token token;
+    private final MatcherTokens matcherToken;
     private final String regexExpression;
 
-    public RegexMatcher(Token token, String regex) {
-        this.token = token;
+    public RegexMatcher(MatcherTokens matcherToken, String regex) {
+        this.matcherToken = matcherToken;
         this.regexExpression = regex;
         pattern = Pattern.compile(regex);
     }
@@ -26,8 +27,8 @@ public class RegexMatcher implements Matcher {
         if (matcher.find()) {
             var value = matcher.group(1);
             return new Lexeme(
-                    token,
-                    token.ordinal(),
+                    matcherToken.getToken(),
+                    matcherToken.ordinal(),
                     value, startOffset,
                     matcher.end() - 1);
         }

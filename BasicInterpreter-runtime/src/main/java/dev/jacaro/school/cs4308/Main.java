@@ -75,7 +75,7 @@ public class Main {
         var sourceFiles = new ArrayList<SourceFile>();
 
         for (int i = 0; i < names.size(); i++) {
-            var lexemes = SourceScanner.scan(data.get(i), Token.getAllMatchers());
+            var lexemes = SourceScanner.scan(data.get(i));
             sourceFiles.add(new SourceFile(names.get(i), data.get(i), lexemes));
         }
 

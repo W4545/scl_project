@@ -1,5 +1,5 @@
 plugins {
-    `java-lib`
+    `kotlin-dep`
 }
 
 dependencies {

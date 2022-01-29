@@ -1,7 +1,6 @@
 package dev.jacaro.school.cs4308.scanner;
 
 import dev.jacaro.school.cs4308.java.structure.Lexeme;
-import dev.jacaro.school.cs4308.java.structure.Matcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ public class SourceScanner {
 
     }
 
-    public static Lexeme[] scan(String file, Matcher[] matchers) {
+    public static Lexeme[] scan(String file) {
 
         List<Lexeme> lexemes = new ArrayList<>();
         boolean success = true;
@@ -23,7 +22,7 @@ public class SourceScanner {
 
         outerWhile:
         while(success && startOffset < file.length()) {
-            for (var matcher : matchers) {
+            for (var matcher : MatcherTokens.getAllMatchers()) {
                 Lexeme lexeme = matcher.match(file, startOffset);
                 if (lexeme != null) {
                     lexemes.add(lexeme);
