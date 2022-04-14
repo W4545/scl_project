@@ -1,6 +1,6 @@
 import org.gradle.api.JavaVersion
 
 object Versions {
-    const val KOTLIN_VERSION = "1.6.10"
+    const val KOTLIN_VERSION = "1.6.20"
     val JAVA_VERSION = JavaVersion.VERSION_17
 }
