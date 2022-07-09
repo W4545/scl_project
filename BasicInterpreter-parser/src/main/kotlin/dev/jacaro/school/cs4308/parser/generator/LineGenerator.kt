@@ -2,7 +2,7 @@ package dev.jacaro.school.cs4308.parser.generator
 
 import dev.jacaro.school.cs4308.java.errors.ParsingError
 import dev.jacaro.school.cs4308.parser.Head
-import dev.jacaro.school.cs4308.parser.generator.lists.StatementsGenerator
+import dev.jacaro.school.cs4308.parser.generator.lists.ActionsGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.kotlin.structure.Line
 import dev.jacaro.school.cs4308.kotlin.structure.Token
@@ -18,7 +18,7 @@ object LineGenerator : Generator<Line> {
             return null
         val int = IntConstantGenerator.generate(head) ?: return null
 
-        val statements = genOrThrow(head, StatementsGenerator)
+        val statements = genOrThrow(head, ActionsGenerator)
 
         if (!head.isToken(Token.OP_NEWLINE)) {
             if (head.currentHead < head.lexemes.size)

@@ -81,9 +81,9 @@ val PrintListGenerator = GenListGenerator(ExpressionGenerator, Token.OP_SEMICOLO
 /**
  * Generates a list of statements
  * @see GenListGenerator
- * @see StatementsGenerator
+ * @see ActionsGenerator
  */
-val StatementsGenerator = GenListGenerator(ActionGenerator, Token.OP_COLON) {
+val ActionsGenerator = GenListGenerator(ActionGenerator, Token.OP_COLON) {
     it.toTypedArray()
 }
 
