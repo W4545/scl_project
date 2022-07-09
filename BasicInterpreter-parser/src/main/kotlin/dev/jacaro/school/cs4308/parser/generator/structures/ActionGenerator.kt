@@ -1,20 +1,20 @@
 package dev.jacaro.school.cs4308.parser.generator.structures
 
+import dev.jacaro.school.cs4308.kotlin.structure.Action
 import dev.jacaro.school.cs4308.parser.Head
 import dev.jacaro.school.cs4308.parser.generator.commands.allGenerators
 import dev.jacaro.school.cs4308.parser.structure.Generator
-import dev.jacaro.school.cs4308.kotlin.structure.Statement
 
 /**
  * Generates statements
- * @see Statement
+ * @see Action
  */
-object StatementGenerator : Generator<Statement> {
-    override fun generate(head: Head): Statement? {
+object ActionGenerator : Generator<Action> {
+    override fun generate(head: Head): Action? {
         for (generator in allGenerators) {
             val value = generator.generate(head)
             if (value != null)
-                return Statement(value)
+                return value
         }
 
         return null

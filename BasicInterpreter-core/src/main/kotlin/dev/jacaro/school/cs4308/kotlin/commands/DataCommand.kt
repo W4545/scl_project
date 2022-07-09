@@ -20,4 +20,8 @@ data class DataCommand(val constantList: ConstantList) : Action {
             executed = true
         }
     }
+
+    override fun toString(): String {
+        return "DataCommand(${constantList.constants.joinToString(separator = ", ") { it.raw?.toString() ?: "" }})"
+    }
 }

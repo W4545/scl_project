@@ -1,6 +1,7 @@
 package dev.jacaro.school.cs4308.executor
 
 import dev.jacaro.school.cs4308.kotlin.commands.DataCommand
+import dev.jacaro.school.cs4308.kotlin.errors.Basic64RuntimeException
 import dev.jacaro.school.cs4308.kotlin.ids.IDManager
 import dev.jacaro.school.cs4308.kotlin.structure.Line
 import dev.jacaro.school.cs4308.kotlin.structure.State
@@ -16,15 +17,19 @@ object Executor {
         // Pre-executes all data commands to preload data queue.
         for (line in state.lines) {
             for (statement in line.statements) {
-                if (statement.action is DataCommand)
-                    statement.action.action(state)
+                if (statement is DataCommand)
+                    statement.action(state)
             }
         }
 
 
         outer@ while (!state.stopExecution) {
             inner@ for (statement in state.currentLine.statements) {
-                statement.action(state) // Execute statements on line.
+                try {
+                    statement.action(state) // Execute statements on line.
+                } catch (ex: RuntimeException) {
+                    throw Basic64RuntimeException(state.currentLine, statement, ex)
+                }
 
                 if (state.doNotIncrementLine)
                     break@inner // Stop executing current line. Jumping to execute another line.

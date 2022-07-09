@@ -10,7 +10,7 @@ import dev.jacaro.school.cs4308.parser.generator.IDGenerator
 import dev.jacaro.school.cs4308.parser.generator.expressions.ExpressionGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGenerator
 import dev.jacaro.school.cs4308.parser.generator.ValueGeneratorNoIDs
-import dev.jacaro.school.cs4308.parser.generator.structures.StatementGenerator
+import dev.jacaro.school.cs4308.parser.generator.structures.ActionGenerator
 import dev.jacaro.school.cs4308.parser.structure.Generator
 import dev.jacaro.school.cs4308.kotlin.structure.Token
 
@@ -83,7 +83,7 @@ val PrintListGenerator = GenListGenerator(ExpressionGenerator, Token.OP_SEMICOLO
  * @see GenListGenerator
  * @see StatementsGenerator
  */
-val StatementsGenerator = GenListGenerator(StatementGenerator, Token.OP_COLON) {
+val StatementsGenerator = GenListGenerator(ActionGenerator, Token.OP_COLON) {
     it.toTypedArray()
 }
 

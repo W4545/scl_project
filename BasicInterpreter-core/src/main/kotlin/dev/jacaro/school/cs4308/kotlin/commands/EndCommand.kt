@@ -11,4 +11,8 @@ class EndCommand : Action {
     override fun action(state: State) {
         state.stopExecution = true
     }
+
+    override fun toString(): String {
+        return "EndCommand"
+    }
 }
