@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21")
 }
 
 repositories {
